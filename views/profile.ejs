@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>House Price GPS</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"> -->
+
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/venobox/venobox.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="style.css"> -->
+
+  <!-- Mapbox Files -->
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.css' rel='stylesheet' />
+
+
+  <!-- =======================================================
+    Theme Name: TheEvent
+    Theme URL: https://bootstrapmade.com/theevent-conference-event-bootstrap-template/
+    Author: BootstrapMade.com
+    License: https://bootstrapmade.com/license/
+  ======================================================= -->
+</head>
+
+<body>
+
+  <!--==========================
+    Header
+  ============================-->
+  <header id="header">
+    <div class="container">
+
+      <div id="logo" class="pull-left">
+        <!-- Uncomment below if you prefer to use a text logo -->
+        <h1><a href="#intro">HP<span>GPS</span></a></h1>
+        <!-- <a href="#intro" class="scrollto"><img src="img/logo.png" alt="" title=""></a> -->
+      </div>
+      <span id="welcome"><%= `Welcome ${user.local.username}!` %></span>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="#intro">Home</a></li>
+          <li><a href="#about">Results</a></li>
+          <li><a href="#favorites">Favorites</a></li>
+          <li><a href="#footer">Contact</a></li>
+          <li><a href="/logout">Logout</a></li>
+          <li class="buy-tickets"><a href="https://www.google.com/maps">Beta Mode</a></li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+  </header><!-- #header -->
+
+  <!--==========================
+    Intro Section
+  ============================-->
+  <section id="intro">
+    <div class="intro-container wow fadeIn">
+      <!-- <h1 class="mb-4 pb-0">Welcome<span> <%= user.local.username %></span></h1> -->
+      <!-- <p id="findMeStatus"></p>
+      <p id="rawAddress"> </p>
+      <p id="zestimate"> </p> -->
+
+      <!-- <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video"
+        data-autoplay="true"></a> -->
+      <section id="mapContainer">
+          <!-- <img id="tempImg" src="img/stillmap.png" alt=""> -->
+        <div id='map'></div>
+      </section>
+
+      <!-- <a href="" class="about-btn" id="findLatLongAddress"><span class="fa fa-user"></span> Find Nearest House</a> -->
+
+      <!-- <section class="left-sec">
+        <p>this is the greaest thisgn eve
+        this is the greaest thisgn eve
+        this is the greaest thisgn eve
+        this is the greaest thisgn eve</p>
+      </section> -->
+      <section class="right-sec">
+        <button class="about-btn api-btn" id="findLatLongAddress"><span class="fa fa-user"></span> Find Nearest House</button>
+        <button class="about-btn api-btn" id="getZestimate"><span class="fa fa-dollar"></span> Get House Price</button>
+        <button class="about-btn api-btn" id="saveHouse"><span class="fa fa-arrow-down"></span> Save House</button>
+      </section>
+
+    </div>
+  </section>
+
+  <main id="main">
+
+    <!--==========================
+      About Section
+    ============================-->
+    <section id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <h3><span class="fa fa-question"></span> Where</h3>
+            <p id="rawAddress"> </p>
+            <!-- <p>Downtown Conference Center, New York</p> -->
+          </div>
+          <div class="col-lg-4">
+            <h3><span class="fa fa-tag"></span> Price</h3>
+            <p id="zestimate"> </p>
+            <!-- <p>Monday to Wednesday<br>10-12 December</p> -->
+          </div>
+          <div class="col-lg-4">
+            <h3 id="pinkh3">: Search Results</h3>
+            <p id="findMeStatus"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--==========================
+      Favorites Section
+    ============================-->
+    <section id="favorites" class="wow fadeInUp">
+      <div class="container">
+        <div class="section-header">
+          <h2>Houses</h2>
+          <p>Your Saved Houses (Star Your Favorites!)</p>
+        </div>
+        <ol>
+          <% for(var i=0; i<savedHouses.length; i++) {%>
+          <li>
+            <h4>
+              <span><span class="fa fa-trash"></span></span>
+              <span><span class="fa fa-star"></span></span>
+              <span><%= savedHouses[i].starred %></span>
+              <span><%= savedHouses[i].rawAddress %></span>
+              <a href="/savedHouses/<%= savedHouses[i]._id %>">Link</a>
+            </h4>
+            <h4>PRICE $$$</h4><span><%= savedHouses[i].price %></span>
+            <span><%= savedHouses[i].latitude %></span>
+            <span><%= savedHouses[i].longitude %></span>
+          </li>
+          <% } %>
+        </ol>
+      </div>
+
+    </section>
+
+  <!--==========================
+    Footer/Contact
+  ============================-->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-info">
+            <h2><a href="#main">House Price GPS</a></h2>
+            <!-- <img src="img/logo.png" alt="TheEvenet"> -->
+            <p>In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet est dolor et totam porro. Perspiciatis ad omnis fugit molestiae recusandae possimus. Aut consectetur id quis. In inventore consequatur ad voluptate cupiditate debitis accusamus repellat cumque.</p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="fa fa-angle-right"></i> <a href="#">Home</a></li>
+              <li><i class="fa fa-angle-right"></i> <a href="#">About us</a></li>
+              <li><i class="fa fa-angle-right"></i> <a href="#">Services</a></li>
+              <li><i class="fa fa-angle-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="fa fa-angle-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="fa fa-angle-right"></i> <a href="#">Home</a></li>
+              <li><i class="fa fa-angle-right"></i> <a href="#">About us</a></li>
+              <li><i class="fa fa-angle-right"></i> <a href="#">Services</a></li>
+              <li><i class="fa fa-angle-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="fa fa-angle-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h4>Contact Me</h4>
+            <p>
+              50 Milk St <br>
+              Boston, MA 02109<br>
+              United States <br>
+              <strong>Phone:</strong> +1 617 248 2236<br>
+              <strong>Email:</strong> contact@house-gps.com<br>
+            </p>
+
+            <div class="social-links">
+              <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+              <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+              <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+              <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong>TheEvent</strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!--
+          All the links in the footer should remain intact.
+          You can delete the links only if you purchased the pro version.
+          Licensing information: https://bootstrapmade.com/license/
+          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=TheEvent
+        -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- #footer -->
+
+  <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+  <!-- JavaScript Libraries -->
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/superfish/hoverIntent.js"></script>
+  <script src="lib/superfish/superfish.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/venobox/venobox.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+  <!-- Contact Form JavaScript File -->
+  <!-- <script src="contactform/contactform.js"></script> -->
+
+  <!-- Template Main Javascript File -->
+  <script src="js/main.js"></script>
+  <!-- Non-Bootstrap JS -->
+  <script type="text/javascript" src="main.js">
+
+  </script>
+</body>
+
+</html>
+beta

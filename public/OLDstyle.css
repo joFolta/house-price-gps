@@ -1,0 +1,82 @@
+#tempImg{
+  width: 100%;
+}
+*{
+  box-sizing: border-box;
+  text-align: center;
+}
+body{
+  margin: 0;
+  background-image: url(img/keybluebckgnd.jpg);
+  color: rgb(38,38,38)
+}
+h1{
+  margin: 0 0 15px 0;
+}
+div{
+  margin: 0;
+  width: 100%;
+}
+form{
+  width: 100%;
+}
+#logo{
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  width: 100px;
+}
+#fetchedImg{
+  border: 1x solid black;
+  width: 99%;
+}
+a{
+  display: block;
+}
+#rawAddress, #zestimate{
+  display: inline;
+}
+footer{
+  height: 50px;
+}
+#mapContainer{
+  width: 40%;
+  height: 600px;
+  border: 4px solid black;
+  margin: 0 auto;
+  position: relative;
+}
+#map{
+  position:absolute;
+  top:0;
+  bottom:0;
+  width:100%;
+}
+canvas{
+  right: 0px;
+}
+
+/* -------------------------------------- */
+/* -----------Media Queries-------------- */
+/* -------------------------------------- */
+/* Mobile */
+@media only screen and (max-width: 739px){
+  #mapContainer{
+    width: 95%;
+    height: 500px;
+    border: 4px solid black;
+    margin: 0 auto;
+    position: relative;
+  }
+}
+
+/* Tablet */
+@media (min-width: 740px) and (max-width: 1367px){
+  #mapContainer{
+    width: 60%;
+    height: 500px;
+    border: 4px solid black;
+    margin: 0 auto;
+    position: relative;
+  }
+}
