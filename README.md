@@ -2,10 +2,6 @@
 
 # 📷 House-Pricing-GPS-App
 
-## DRAFT STAGE
-## DRAFT STAGE
-## DRAFT STAGE
-
 ### Purpose:
 
 - Full-stack app that allows users to find their location and find the price of the nearest house.
