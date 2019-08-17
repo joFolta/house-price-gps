@@ -26,18 +26,6 @@ module.exports = function(app, passport, db, ObjectId) {
   });
 });
 
-  // app.get('/profile', isLoggedIn, function(req, res) {
-  //   console.log("req.user.local.username", req.user.local.username);
-  //   db.collection('savedHouses').find({"user": req.user.local.username}).toArray((err, result) => {
-  //   // db.collection('savedHouses').find().toArray((err, result) => {
-  //
-  //     if (err) return console.log(err)
-  //     res.render('profile.ejs', {
-  //       user: req.user,
-  //       savedHouses: result
-  //     })
-  //   })
-  // });
 
   // GET individual house pages
   app.get('/savedHouses/:house_id', function(req, res) {
