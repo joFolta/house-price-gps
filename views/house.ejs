@@ -9,7 +9,7 @@
   <meta content="" name="description">
 
   <!-- Favicons -->
-  <link href="/img/favicon.png" rel="icon">
+  <link href="img/favicon.ico" rel="icon">
   <link href="/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -54,11 +54,10 @@
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li class="menu-active"><a href="/">Home</a></li>
-          <li><a href="#about">Results</a></li>
-          <li><a href="#favorites">Favorites</a></li>
+          <li><a href="#about">Favorites</a></li>
           <li><a href="#footer">Contact</a></li>
           <li><a href="/logout">Logout</a></li>
-          <li class="buy-tickets"><a href="https://www.google.com/maps">Beta Mode</a></li>
+          <li class="buy-tickets"><a href="https://www.google.com/maps" target="_blank">Plan Trip</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
@@ -76,56 +75,68 @@
         <h2>This House</h2>
         <!-- <p>Your House</p> -->
       </div>
-      <ul>
+      <!-- <ul> -->
 
 
 
         <% for(var i=0; i<savedHouses.length; i++) {%>
-        <section>
-          <h2>Street View</h2>
-          <a class="embedly-card" data-card-controls="0" data-card-theme="dark"
+        <section class="streetViewANDInfoSecs clearfix">
+          <section class="houseStreetViewSec">
+            <h2>Street View</h2>
+            <a class="embedly-card" data-card-controls="0" data-card-theme="dark"
             href="https://www.instantstreetview.com/@<%= savedHouses[i].latitude %>,<%= savedHouses[i].longitude %>,229.42h,-0.58p,0.13z">...LOADING......LOADING......LOADING......LOADING......LOADING...</a>
-          <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
+            <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
+          </section>
+
+          <section class="houseInfoSec">
+            <h2>Detailed Info</h2>
+            <span><%= savedHouses[i].starred %></span>
+            <ul>
+              <li>Address: <%= savedHouses[i].rawAddress %></li>
+              <li>PRICE: <%= savedHouses[i].price %></li>
+              <li>Coordinates: <%= savedHouses[i].latitude %>, <%= savedHouses[i].longitude %></li>
+              <li>Year Built: <%= savedHouses[i].yearBuilt %></li>
+              <li>Purpose: <%= savedHouses[i].purpose %></li>
+              <li>Furnished ft^2: <%= savedHouses[i].liveSqFt %></li>
+              <li>Entire Lot ft^2: <%= savedHouses[i].lotSqFt %></li>
+              <li>Bedrooms: <%= savedHouses[i].bedRoom %></li>
+              <li>Bathrooms: <%= savedHouses[i].bathRoom %></li>
+              <li>Total Rooms: <%= savedHouses[i].totalRoom %></li>
+              <li>Last Sold: $<%= savedHouses[i].soldPrice %>, Year: <%= savedHouses[i].soldDate %></li>
+              <li>Zip: <%= savedHouses[i].zip %></li>
+            </ul>
+          </section>
         </section>
 
-        <section>
-          <h2>Detailed Info</h2>
-          <span><%= savedHouses[i].starred %></span>
-          <li>Address: <%= savedHouses[i].rawAddress %></li>
-          <li>PRICE: <%= savedHouses[i].price %></li>
-          <li>Coordinates: <%= savedHouses[i].latitude %>, <%= savedHouses[i].longitude %></li>
-          <li>Year Built: <%= savedHouses[i].yearBuilt %></li>
-          <li>Built: <%= savedHouses[i].yearBuilt %></li>
-          <li>Purpose: <%= savedHouses[i].purpose %></li>
-          <li>Furnished ft^2: <%= savedHouses[i].liveSqFt %></li>
-          <li>Entire Lot ft^2: <%= savedHouses[i].lotSqFt %></li>
-          <li>Bedrooms: <%= savedHouses[i].bedRoom %></li>
-          <li>Bathrooms: <%= savedHouses[i].bathRoom %></li>
-          <li>Total Rooms: <%= savedHouses[i].totalRoom %></li>
-          <li>Last Sold: $<%= savedHouses[i].soldPrice %>, Year: <%= savedHouses[i].soldDate %></li>
-          <li>Zip: <%= savedHouses[i].zip %></li>
-        </section>
 
-
-        <section>
+        <section class="houseLinkSec">
           <h2>Links</h2>
-          <a href="https://livabilityindex.aarp.org/search#<%= savedHouses[i].zip %>" target="_blank"><img src="/img/aarpScore.png" alt="AARP Livability Index">
-            <li>Check Livability Index (by AARP)</li>
-          </a>
-          <a href="<%= savedHouses[i].comps %>" target="_blank">
-            <li>Comparables: <%= savedHouses[i].comps %></li>
-          </a>
-          <a href="<%= savedHouses[i].neighValue %>" target="_blank">
-            <li>Neighborhood Value Analysis: <%= savedHouses[i].neighValue %></li>
-          </a>
-          <a href="<%= savedHouses[i].moreInfo %>" target="_blank">
-            <li>Zillow Propery Page: <%= savedHouses[i].moreInfo %></li>
+          <ul>
+
+            <li>Research Neighborhood:<br> <a href="http://www.city-data.com/indexes/neighborhoods/" target="_blank">City-Data Neighborhood Facts</a>
+            </li><br>
+              <li>Comparables:<br> <a href="<%= savedHouses[i].comps %>" target="_blank"><%= savedHouses[i].comps %></a>
+              </li><br>
+              <li>Neighborhood Value Analysis:<br> <a href="<%= savedHouses[i].neighValue %>" target="_blank"><%= savedHouses[i].neighValue %></a>
+              </li><br>
+              <li>Zillow Propery Page:<br> <a href="<%= savedHouses[i].moreInfo %>" target="_blank"><%= savedHouses[i].moreInfo %></a>
+              </li><br>
+
+          </ul>
+        </section>
+
+        <section class="houseAARPImgSec">
+          <h2>Livability Index</h2>
+          <br><br>
+          <a href="https://livabilityindex.aarp.org/search#<%= savedHouses[i].zip %>" target="_blank">
+          <img src="/img/aarpScore.png" alt="AARP Livability Index"><h4>Click to Check</h4><p> (by AARP)</p>
           </a>
         </section>
+
 
         <% } %>
         <!-- let yearBuilt, purpose, liveSqFt, lotSqFt, bedRoom, bathRoom, totalRoom, soldDate, soldPrice, comps, neighValue, moreInfo -->
-      </ul>
+      <!-- </ul> -->
 
       <!-- </div> -->
     </div>
@@ -140,18 +151,16 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-4">
-            <h3><span class="fa fa-question"></span> Where</h3>
-            <p id="rawAddress"> </p>
-            <!-- <p>Downtown Conference Center, New York</p> -->
+            <!-- <h3><span class="fa fa-question"></span> Where</h3>
+            <p id="rawAddress"> </p> -->
           </div>
           <div class="col-lg-4">
-            <h3><span class="fa fa-tag"></span> Price</h3>
+            <a href="javascript:history.back()"><h3><span class="fa fa-arrow-left"></span> Back to Favorites</h3></a>
             <p id="zestimate"> </p>
-            <!-- <p>Monday to Wednesday<br>10-12 December</p> -->
           </div>
           <div class="col-lg-4">
-            <h3 id="pinkh3">: Search Results</h3>
-            <p id="findMeStatus"></p>
+            <!-- <h3 id="pinkh3">: Search Results</h3>
+            <p id="findMeStatus"></p> -->
           </div>
         </div>
       </div>
@@ -160,31 +169,7 @@
     <!--==========================
       Favorites Section
     ============================-->
-    <section id="favorites" class="wow fadeInUp">
-      <div class="container">
-        <div class="section-header">
-          <h2>Houses</h2>
-          <p>Your Saved Houses (Star Your Favorites!)</p>
-        </div>
-        <ol>
-          <% for(var i=0; i<savedHouses.length; i++) {%>
-          <li>
-            <h4>
-              <span><span class="fa fa-trash"></span></span>
-              <span><span class="fa fa-star"></span></span>
-              <span><%= savedHouses[i].starred %></span>
-              <span><%= savedHouses[i].rawAddress %></span>
-              <a href="/savedHouses/<%= savedHouses[i]._id %>">Link</a>
-            </h4>
-            <h4>PRICE $$$</h4><span><%= savedHouses[i].price %></span>
-            <span><%= savedHouses[i].latitude %></span>
-            <span><%= savedHouses[i].longitude %></span>
-          </li>
-          <% } %>
-        </ol>
-      </div>
 
-    </section>
 
     <!--==========================
     Footer/Contact

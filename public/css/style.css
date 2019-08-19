@@ -1670,6 +1670,15 @@ body.mobile-nav-active #mobile-nav-toggle {
   #subscribe button {
     margin-top: 10px;
   }
+  /* .col-lg-3{
+    margin-top: 30px;
+  } */
+  #about h3{
+    margin: 0;
+  }
+  /* #gallery .h2Gallery{
+    font-size: 19px;
+  } */
 }
 
 
@@ -1838,6 +1847,7 @@ p{
 } */
 #findMeStatus,#rawAddress,#zestimate{
   display: block;
+  text-align: center;
   /* margin: 36px 0 -17px 0; */
   /* margin: 36px 0 -80px 0; */
 
@@ -1845,9 +1855,34 @@ p{
 #about h2{
   color: #f82249;
 }
-#pinkh3{
-  color: #f82249 !important;;
+#about #searchResults{
+  color: #f82249;
+  /* color: #f82249 !important;; */
 }
+/* Pusalting Favorite's List's "Link" */
+.pulsateTemp {
+    -webkit-animation: pulsate 1.5s ease-out;
+    -webkit-animation-iteration-count: 2;
+    opacity: 1.0;
+}
+.pulsate {
+    -webkit-animation: pulsate 1.5s ease-out;
+    -webkit-animation-iteration-count: infinite;
+    opacity: 1.0;
+    font-weight: 500;
+}
+@-webkit-keyframes pulsate {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1.0;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
 #house {
   width: 100%;
   /* 100% viewport ht; give contents height %'s */
@@ -1867,7 +1902,7 @@ p{
   /* NEED TO MEDIA QUERY DEPENDING ON HOW MUCH CONTENT INSIDE HOUSE SECTION */
   /* NEED TO MEDIA QUERY DEPENDING ON HOW MUCH CONTENT INSIDE HOUSE SECTION */
   /* NEED TO MEDIA QUERY DEPENDING ON HOW MUCH CONTENT INSIDE HOUSE SECTION */
-  height: 300vh;
+  height: 180vh;
 
   background: url(../img/house2.jpg) top center;
   background-size: cover;
@@ -1915,6 +1950,71 @@ p{
 .savedHouse-container h2{
   color: white;
 }
-.embedly-card{
+.streetViewANDInfoSecs{
+  /* border: 1px solid white; */
+  width: 100%;
+}
+/* Clear fix hack */
+.clearfix:after {
+     content: ".";
+     display: block;
+     clear: both;
+     visibility: hidden;
+     line-height: 0;
+     height: 0;
+}
+.houseStreetViewSec{
+  /* border: 1px solid white; */
+  width: 40%;
+  margin-left: 7%;
   float: left;
 }
+#cards{
+  width: 100%;
+}
+/* .embedly-card iframe{
+  width: 100%;
+  float: left;
+} */
+.embedly-card{
+  width: 100%;
+}
+.art-bd-img{
+  width: 100%;
+  float: left;
+}
+.houseInfoSec{
+  /* border: 1px solid white; */
+  width: 40%;
+  margin-left: 7%;
+  margin-right: 6%;
+  float: left;
+}
+.houseRtSec ul{
+
+}
+.houseLinkSec{
+  /* border: 1px solid white; */
+  width: 40%;
+  margin-left: 7%;
+  float: left;
+}
+.houseAARPImgSec{
+  /* border: 1px solid white; */
+  width: 40%;
+  margin-left: 7%;
+  float: left;
+
+}
+.houseAARPImgSec h4{
+  color: white;
+}
+.houseAARPImgSec a{
+  display: block;
+  text-align: center;
+  /* padding-left: 20%; */
+  /* text-align: center; */
+}
+/* .houseAARPImgSec p{
+  text-align: center;
+} */

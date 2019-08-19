@@ -9,7 +9,7 @@
   <meta content="" name="description">
 
   <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
+  <link href="img/favicon.ico" rel="icon">
   <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -66,7 +66,7 @@
           <li><a href="#favorites">Favorites</a></li>
           <li><a href="#footer">Contact</a></li>
           <li><a href="/logout">Logout</a></li>
-          <li class="buy-tickets"><a href="https://www.google.com/maps">Beta Mode</a></li>
+          <li class="buy-tickets"><a href="https://www.google.com/maps" target="_blank">Plan Trip</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
@@ -115,17 +115,17 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-4">
-            <h3><span class="fa fa-question"></span> Where</h3>
+            <h3 id="where"><span class="fa fa-question"></span> Where</h3>
             <p id="rawAddress"> </p>
             <!-- <p>Downtown Conference Center, New York</p> -->
           </div>
           <div class="col-lg-4">
-            <h3><span class="fa fa-tag"></span> Price</h3>
+            <h3 id="price"><span class="fa fa-tag"></span> Price</h3>
             <p id="zestimate"> </p>
             <!-- <p>Monday to Wednesday<br>10-12 December</p> -->
           </div>
           <div class="col-lg-4">
-            <h3 id="pinkh3">: Search Results</h3>
+            <h3 id="searchResults">: Search Results</h3>
             <p id="findMeStatus"></p>
           </div>
         </div>
@@ -138,7 +138,7 @@
     <section id="favorites" class="wow fadeInUp">
       <div class="container">
         <div class="section-header">
-          <h2><%= `${user.local.username}'s` %><br>House List</h2>
+          <h2><%= `${user.local.username}'s` %><br>Favorite's List</h2>
         </div>
         <span>Your Saved Houses (Star Your Favorites!)</span>
         <ol>
@@ -149,7 +149,7 @@
               <span><span class="fa fa-star"></span></span>
               <span><%= savedHouses[i].starred %></span>
               <span><%= savedHouses[i].rawAddress %></span>
-              <a href="/savedHouses/<%= savedHouses[i]._id %>">Link</a>
+              <a class="pulsate" href="/savedHouses/<%= savedHouses[i]._id %>">Link</a>
             </h4>
             <h4>PRICE <%= savedHouses[i].price %></h4>
           </li>
@@ -158,6 +158,7 @@
       </div>
 
     </section>
+  </main>
 
   <!--==========================
     Footer/Contact

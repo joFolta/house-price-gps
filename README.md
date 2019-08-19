@@ -19,17 +19,16 @@
 
 ## TO DO:
 
-- AARP Livability Index
-
-~!!!JUST zip CODE!!!!!
-
-https://livabilityindex.aarp.org/search#8+Malverna+Rd+Roslindale+MA
-https://livabilityindex.aarp.org/search#633+Saw+Mill+Brook+Pkwy+Newton+Center+MA
-https://livabilityindex.aarp.org/search#149+Gallivan+Boulevard+Dorchester+Center+MA
-
+_____________________________________________________
+_____________________________________________________
+_____________________________________________________
+- ~!!! ADD BUTTONS FOR SPECIFIC ADDRESSES !!!~
+_____________________________________________________
+_____________________________________________________
+_____________________________________________________
+_____________________________________________________
 
 - ADD MORE Data to save and show on house.ejs
-  -
 - add Non-Logged In page
 [landing page(index) enter=> Non-Logged In page => Logged in Page with Favorites and other functionality
 ]
@@ -68,6 +67,7 @@ Functionalities
 ## Used Features
 - Embed Code Generator | Embedly https://embed.ly/code
 - Instant Street View https://www.instantstreetview.com/
+- AARP Livability Index https://livabilityindex.aarp.org/
 - 3D Buildings https://docs.mapbox.com/mapbox-gl-js/example/3d-buildings/
 - Live Zoom https://docs.mapbox.com/mapbox-gl-js/example/change-building-color-based-on-zoom-level/
 - Set pitch and bearing https://docs.mapbox.com/mapbox-gl-js/example/set-perspective/

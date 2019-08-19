@@ -74,7 +74,9 @@ let yearBuilt, purpose, liveSqFt, lotSqFt, bedRoom, bathRoom, totalRoom, soldDat
 
 // https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API
 function geoFindMe() {
-console.log("findLatLongAddress clicked");
+  console.log("findLatLongAddress clicked");
+  document.querySelector("#where").style.color = "#f82249"
+
   const findMeStatus = document.querySelector('#findMeStatus');
   //LINK TO EXTERNAL MAP 2 OF 3
   // const mapLink = document.querySelector('#map-link');
@@ -100,8 +102,8 @@ console.log("findLatLongAddress clicked");
     // longitude = -71.070810
 
     // West Roxbury
-    latitude = 42.261375
-    longitude = -71.151051
+    // latitude = 42.261375
+    // longitude = -71.151051
 
     // Melrose
     // latitude = 42.444334
@@ -134,6 +136,7 @@ console.log("findLatLongAddress clicked");
     fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${longitude},${latitude}.json?access_token=pk.eyJ1IjoiY29tcGxleGFwaWNlbnN1c2FuZG1hcCIsImEiOiJjanh6ZnBlYWEwMmptM2RvYW02ZTIwODk0In0.m4zyrwu_-34qVZNFVbKtCQ`)
       .then(response => response.json())
       .then(response => {
+        document.querySelector("#where").style.fontSize = "22px"
         console.log(response)
         console.log(response.features[0].place_name)
         rawAddress = response.features[0].place_name
@@ -167,6 +170,7 @@ console.log("findLatLongAddress clicked");
 // fetch('https://cors-anywhere.herokuapp.com/http://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id=X1-ZWz17qrfs9kp3f_17jma&address=34 Goldcliff Rd&citystatezip=Malden%2C+MA')
 function getZestimate() {
   console.log('#getZestimate');
+  document.querySelector("#price").style.color = "#f82249"
 
   // Zoom In - LIVE
   map.zoomTo(18, {
@@ -176,6 +180,10 @@ function getZestimate() {
   fetch(`https://cors-anywhere.herokuapp.com/http://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id=X1-ZWz17qrfs9kp3f_17jma&address=${streetAddress}&citystatezip=${city}%2C+${state}`)
     .then(response => response.text())
     .then(response => {
+      document.querySelector("#price").style.fontSize = "22px"
+      document.querySelector("#searchResults").innerHTML = "Explore the Details Link in the Favorite's List Below"
+      document.querySelector("#searchResults").classList.add("pulsateTemp")
+
       // DOMParser constructor
       let parser = new DOMParser()
       let xml = parser.parseFromString(response, 'application/xml')
@@ -183,7 +191,7 @@ function getZestimate() {
 
       console.log('Year Built', xml.querySelector('yearBuilt').innerHTML);
       yearBuilt = xml.querySelector('yearBuilt').innerHTML
-      console.log('yearBuilt',yearBuilt)
+      console.log('yearBuilt', yearBuilt)
 
 
       console.log('Purpose', xml.querySelector('useCode').innerHTML);
@@ -251,6 +259,10 @@ function parseAddressByLength(rawAddress) {
 
 // console.log(document.querySelector("#currentUser").innerHTML, "currentUser")
 function saveHouse() {
+  document.querySelector("#where").style.color = "white"
+  document.querySelector("#price").style.color = "white"
+  document.querySelector("#searchResults").style.color = "white"
+
   console.log('#saveHouse');
   console.log('zip', zip)
 
@@ -280,7 +292,7 @@ function saveHouse() {
         'neighValue': neighValue,
         'moreInfo': moreInfo
 
-// let yearBuilt, purpose, liveSqFt, lotSqFt, bedRoom, bathRoom, totalRoom, soldDate, soldPrice, comps, neighValue, moreInfo
+        // let yearBuilt, purpose, liveSqFt, lotSqFt, bedRoom, bathRoom, totalRoom, soldDate, soldPrice, comps, neighValue, moreInfo
 
       })
     })
@@ -301,7 +313,7 @@ let trash = document.querySelectorAll(".fa-trash")
 trash.forEach((element) => {
   element.addEventListener('click', function() {
     const rawAddress = this.parentNode.parentNode.childNodes[7].innerText
-    console.log("rawAddress",rawAddress)
+    console.log("rawAddress", rawAddress)
     fetch('removeHouse', {
         method: 'delete',
         headers: {
@@ -338,8 +350,6 @@ star.forEach((element) => {
       })
   });
 });
-
-
 
 
 
