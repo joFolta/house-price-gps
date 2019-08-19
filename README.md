@@ -19,6 +19,17 @@
 
 ## TO DO:
 
+- AARP Livability Index
+
+~!!!JUST zip CODE!!!!!
+
+https://livabilityindex.aarp.org/search#8+Malverna+Rd+Roslindale+MA
+https://livabilityindex.aarp.org/search#633+Saw+Mill+Brook+Pkwy+Newton+Center+MA
+https://livabilityindex.aarp.org/search#149+Gallivan+Boulevard+Dorchester+Center+MA
+
+
+- ADD MORE Data to save and show on house.ejs
+  -
 - add Non-Logged In page
 [landing page(index) enter=> Non-Logged In page => Logged in Page with Favorites and other functionality
 ]
@@ -55,6 +66,8 @@ Functionalities
 -find coordinates/price by click on map
 
 ## Used Features
+- Embed Code Generator | Embedly https://embed.ly/code
+- Instant Street View https://www.instantstreetview.com/
 - 3D Buildings https://docs.mapbox.com/mapbox-gl-js/example/3d-buildings/
 - Live Zoom https://docs.mapbox.com/mapbox-gl-js/example/change-building-color-based-on-zoom-level/
 - Set pitch and bearing https://docs.mapbox.com/mapbox-gl-js/example/set-perspective/
@@ -82,6 +95,10 @@ https://docs.mapbox.com/mapbox.js/example/v1.0.0/marker-popup-onload/
 
 ### References:
 - Fetching and Reading XML Data (6:23) https://www.youtube.com/watch?v=MDAWie2Sicc
+- https://developer.mozilla.org/en-US/docs/Web/Guide/Parsing_and_serializing_XML
+- https://developer.mozilla.org/en-US/docs/Web/XPath
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_using_XPath_in_JavaScript
+- https://developer.mozilla.org/en-US/docs/Archive/JXON
 - https://developer.mozilla.org/en-US/docs/Web/API/Body/json
 - Prevent CORS error https://github.com/Rob--W/cors-anywhere/#client
   Add https://cors-anywhere.herokuapp.com/ before fetched URL

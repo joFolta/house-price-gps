@@ -103,7 +103,8 @@ h6 {
 --------------------------------*/
 
 .section-header {
-  margin-bottom: 60px;
+  /* margin-bottom: 60px; */
+  margin-bottom: 20px;
   position: relative;
   padding-bottom: 20px;
 }
@@ -1846,4 +1847,74 @@ p{
 }
 #pinkh3{
   color: #f82249 !important;;
+}
+#house {
+  width: 100%;
+  /* 100% viewport ht; give contents height %'s */
+
+  /* NEED TO MEDIA QUERY DEPENDING ON HOW MUCH CONTENT INSIDE HOUSE SECTION */
+  /* NEED TO MEDIA QUERY DEPENDING ON HOW MUCH CONTENT INSIDE HOUSE SECTION */
+  /* NEED TO MEDIA QUERY DEPENDING ON HOW MUCH CONTENT INSIDE HOUSE SECTION */
+  /* NEED TO MEDIA QUERY DEPENDING ON HOW MUCH CONTENT INSIDE HOUSE SECTION */
+  /* NEED TO MEDIA QUERY DEPENDING ON HOW MUCH CONTENT INSIDE HOUSE SECTION */
+  /* NEED TO MEDIA QUERY DEPENDING ON HOW MUCH CONTENT INSIDE HOUSE SECTION */
+  /* NEED TO MEDIA QUERY DEPENDING ON HOW MUCH CONTENT INSIDE HOUSE SECTION */
+  /* NEED TO MEDIA QUERY DEPENDING ON HOW MUCH CONTENT INSIDE HOUSE SECTION */
+  /* NEED TO MEDIA QUERY DEPENDING ON HOW MUCH CONTENT INSIDE HOUSE SECTION */
+  /* NEED TO MEDIA QUERY DEPENDING ON HOW MUCH CONTENT INSIDE HOUSE SECTION */
+  /* NEED TO MEDIA QUERY DEPENDING ON HOW MUCH CONTENT INSIDE HOUSE SECTION */
+  /* NEED TO MEDIA QUERY DEPENDING ON HOW MUCH CONTENT INSIDE HOUSE SECTION */
+  /* NEED TO MEDIA QUERY DEPENDING ON HOW MUCH CONTENT INSIDE HOUSE SECTION */
+  /* NEED TO MEDIA QUERY DEPENDING ON HOW MUCH CONTENT INSIDE HOUSE SECTION */
+  /* NEED TO MEDIA QUERY DEPENDING ON HOW MUCH CONTENT INSIDE HOUSE SECTION */
+  height: 300vh;
+
+  background: url(../img/house2.jpg) top center;
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+}
+#house:before {
+  content: "";
+  background: rgba(6, 12, 34, 0.8);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+#house .savedHouse-container {
+  color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  top: 90px;
+  right: 0;
+  /* display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; */
+
+  /* ------changed layout - map on left -------*/
+  /* ------changed layout - map on left -------*/
+  /* ------changed layout - map on left -------*/
+  /* -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; */
+
+
+  /* -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  text-align: center;
+  padding: 0 15px; */
+}
+.savedHouse-container h2{
+  color: white;
+}
+.embedly-card{
+  float: left;
 }

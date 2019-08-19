@@ -11,6 +11,8 @@ var bodyParser   = require('body-parser');
 var session      = require('express-session');
 var configDB = require('./config/database.js');
 var db
+// let zillowApiKey = require('./config/zillowApiKey.js')
+// console.log("zillowApiKey.zillowApiKey",zillowApiKey.zillowApiKey);
 
 // configuration ===============================================================
 // configDB object and url property

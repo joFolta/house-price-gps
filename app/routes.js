@@ -35,6 +35,7 @@ module.exports = function(app, passport, db, ObjectId) {
       db.collection('savedHouses').find({"_id": uId}).toArray((err, result) => {
         if (err) return console.log(err)
         res.render('house.ejs', {
+          user: req.user,
           savedHouses: result
         })
       })
@@ -62,9 +63,25 @@ module.exports = function(app, passport, db, ObjectId) {
       db.collection('savedHouses').save({
         username: uName,
         rawAddress: req.body.rawAddress,
+        zip: req.body.zip,
         latitude: req.body.latitude,
         longitude: req.body.longitude,
-        price: req.body.ZestimateAmt
+        price: req.body.ZestimateAmt,
+        yearBuilt: req.body.yearBuilt,
+        purpose: req.body.purpose,
+        liveSqFt: req.body.liveSqFt,
+        lotSqFt: req.body.lotSqFt,
+        bedRoom: req.body.bedRoom,
+        bathRoom: req.body.bathRoom,
+        totalRoom: req.body.totalRoom,
+        soldDate: req.body.soldDate,
+        soldPrice: req.body.soldPrice,
+        comps: req.body.comps,
+        neighValue: req.body.neighValue,
+        moreInfo: req.body.moreInfo
+
+        // let yearBuilt, purpose, liveSqFt, lotSqFt, bedRoom, bathRoom, totalRoom, soldDate, soldPrice, comps, neighValue, moreInfo
+
       },
       (err, result) => {
         if (err) return console.log(err)

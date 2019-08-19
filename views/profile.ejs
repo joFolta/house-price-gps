@@ -54,14 +54,14 @@
 
       <div id="logo" class="pull-left">
         <!-- Uncomment below if you prefer to use a text logo -->
-        <h1><a href="#intro">HP<span>GPS</span></a></h1>
+        <h1><a href="/">HP<span>GPS</span></a></h1>
         <!-- <a href="#intro" class="scrollto"><img src="img/logo.png" alt="" title=""></a> -->
       </div>
-      <span id="welcome"><%= `Welcome ${user.local.username}!` %></span>
+      <span id="welcome"><%= `Welcome back ${user.local.username}!` %></span>
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="#intro">Home</a></li>
+          <li class="menu-active"><a href="/">Home</a></li>
           <li><a href="#about">Results</a></li>
           <li><a href="#favorites">Favorites</a></li>
           <li><a href="#footer">Contact</a></li>
@@ -138,9 +138,9 @@
     <section id="favorites" class="wow fadeInUp">
       <div class="container">
         <div class="section-header">
-          <h2>Houses</h2>
-          <p>Your Saved Houses (Star Your Favorites!)</p>
+          <h2><%= `${user.local.username}'s` %><br>House List</h2>
         </div>
+        <span>Your Saved Houses (Star Your Favorites!)</span>
         <ol>
           <% for(var i=0; i<savedHouses.length; i++) {%>
           <li>
@@ -151,9 +151,7 @@
               <span><%= savedHouses[i].rawAddress %></span>
               <a href="/savedHouses/<%= savedHouses[i]._id %>">Link</a>
             </h4>
-            <h4>PRICE $$$</h4><span><%= savedHouses[i].price %></span>
-            <span><%= savedHouses[i].latitude %></span>
-            <span><%= savedHouses[i].longitude %></span>
+            <h4>PRICE <%= savedHouses[i].price %></h4>
           </li>
           <% } %>
         </ol>
@@ -262,4 +260,3 @@
 </body>
 
 </html>
-beta

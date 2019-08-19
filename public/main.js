@@ -1,3 +1,9 @@
+console.log("hello");
+
+// let zillowApiKey = require('../config/zillowApiKey.js')
+// console.log("zillowApiKey.zillowApiKey",zillowApiKey.zillowApiKey);
+
+
 // Hardcoded Newton Coordinates
 mapboxgl.accessToken = 'pk.eyJ1IjoiY29tcGxleGFwaWNlbnN1c2FuZG1hcCIsImEiOiJjanh6ZnBlYWEwMmptM2RvYW02ZTIwODk0In0.m4zyrwu_-34qVZNFVbKtCQ';
 var map = new mapboxgl.Map({
@@ -56,10 +62,15 @@ map.on('load', function() {
 let streetAddress = ''
 let city = ''
 let state = ''
+let zip = ''
 let rawAddress = ''
 let latitude = 0
 let longitude = 0
 let ZestimateAmt = 0
+let yearBuilt, purpose, liveSqFt, lotSqFt, bedRoom, bathRoom, totalRoom, soldDate, soldPrice, comps, neighValue, moreInfo
+// let zillowApiKey = require('../config/zillowApiKey.js')
+// console.log("zillowApiKey.zillowApiKey",zillowApiKey.zillowApiKey);
+
 
 // https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API
 function geoFindMe() {
@@ -84,9 +95,25 @@ console.log("findLatLongAddress clicked");
     // latitude = 42.291881
     // longitude = -71.184769
 
-    // Boston Coordinates
-    // latitude = 42.3601
-    // longitude = -71.0589
+    // Gallivan Blvd
+    // latitude = 42.278241
+    // longitude = -71.070810
+
+    // West Roxbury
+    latitude = 42.261375
+    longitude = -71.151051
+
+    // Melrose
+    // latitude = 42.444334
+    // longitude = -71.031010
+
+    // Roslindale
+    // latitude = 42.278579
+    // longitude = -71.129557
+
+    // Noon Meridian Sandwich Shop - Boston
+    // latitude = 42.357811
+    // longitude = -71.058137
 
     // Providence Coordinates
     // latitude = 41.8240
@@ -152,6 +179,36 @@ function getZestimate() {
       // DOMParser constructor
       let parser = new DOMParser()
       let xml = parser.parseFromString(response, 'application/xml')
+
+
+      console.log('Year Built', xml.querySelector('yearBuilt').innerHTML);
+      yearBuilt = xml.querySelector('yearBuilt').innerHTML
+      console.log('yearBuilt',yearBuilt)
+
+
+      console.log('Purpose', xml.querySelector('useCode').innerHTML);
+      purpose = xml.querySelector('useCode').innerHTML
+      console.log('Living Space Square Footage', xml.querySelector('finishedSqFt').innerHTML);
+      liveSqFt = xml.querySelector('finishedSqFt').innerHTML
+      console.log('Lot Size Square Footage', xml.querySelector('lotSizeSqFt').innerHTML);
+      lotSqFt = xml.querySelector('lotSizeSqFt').innerHTML
+      console.log('Bedrooms', xml.querySelector('bedrooms').innerHTML);
+      bedRoom = xml.querySelector('bedrooms').innerHTML
+      console.log('Bathrooms', xml.querySelector('bathrooms').innerHTML);
+      bathRoom = xml.querySelector('bathrooms').innerHTML
+      console.log('Total Rooms', xml.querySelector('totalRooms').innerHTML);
+      totalRoom = xml.querySelector('totalRooms').innerHTML
+      console.log('Last Sold', xml.querySelector('lastSoldDate').innerHTML, xml.querySelector('lastSoldPrice').innerHTML);
+      soldDate = xml.querySelector('lastSoldDate').innerHTML
+      soldPrice = xml.querySelector('lastSoldPrice').innerHTML
+      console.log('Comparables', xml.querySelector('comparables').innerHTML);
+      comps = xml.querySelector('comparables').innerHTML
+      console.log('Neighborhood Home Value Analysis', xml.querySelector('overview').innerHTML);
+      neighValue = xml.querySelector('overview').innerHTML
+      console.log('More Info', xml.querySelector('homedetails').innerHTML);
+      moreInfo = xml.querySelector('homedetails').innerHTML
+      // let yearBuilt, purpose, liveSqFt, lotSqFt, bedRoom, bathRoom, totalRoom, soldDate, soldPrice, comps, neighValue, moreInfo
+
       console.log('ZestimateAmt and Address', xml)
       ZestimateAmt = xml.querySelector('amount').innerHTML
       // Convert to Number
@@ -178,6 +235,8 @@ function parseAddressByLength(rawAddress) {
     console.log('city', city)
     state = rawAddress.split(', ')[2].split(' ')[0]
     console.log('state', state)
+    zip = rawAddress.split(', ')[2].split(' ')[1]
+    console.log('zip', zip);
   } else {
     streetAddress = rawAddress.split(', ')[1]
     console.log('streetAddress', streetAddress)
@@ -185,12 +244,16 @@ function parseAddressByLength(rawAddress) {
     console.log('city', city)
     state = rawAddress.split(', ')[3].split(' ')[0]
     console.log('state', state)
+    zip = rawAddress.split(', ')[3].split(' ')[1]
+    console.log('zip', zip);
   }
 }
 
 // console.log(document.querySelector("#currentUser").innerHTML, "currentUser")
 function saveHouse() {
   console.log('#saveHouse');
+  console.log('zip', zip)
+
 
   fetch('saveHouse', {
       method: 'post',
@@ -200,9 +263,25 @@ function saveHouse() {
       body: JSON.stringify({
         // 'user' : document.querySelector("#currentUser").innerHTML,
         'rawAddress': rawAddress,
+        'zip': zip,
         'latitude': latitude,
         'longitude': longitude,
-        'ZestimateAmt': ZestimateAmt
+        'ZestimateAmt': ZestimateAmt,
+        'yearBuilt': yearBuilt,
+        'purpose': purpose,
+        'liveSqFt': liveSqFt,
+        'lotSqFt': lotSqFt,
+        'bedRoom': bedRoom,
+        'bathRoom': bathRoom,
+        'totalRoom': totalRoom,
+        'soldDate': soldDate,
+        'soldPrice': soldPrice,
+        'comps': comps,
+        'neighValue': neighValue,
+        'moreInfo': moreInfo
+
+// let yearBuilt, purpose, liveSqFt, lotSqFt, bedRoom, bathRoom, totalRoom, soldDate, soldPrice, comps, neighValue, moreInfo
+
       })
     })
     .then(data => {
