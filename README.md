@@ -5,7 +5,7 @@
 ### Purpose:
 
 - Full-stack app that allows users to find their location and find the price of the nearest house.
-- Users can save their favorite houses
+- Users can save their favorite houses.
 
 ## IDEA:
 - look at REAL ESTATE Sites for CSS ideas/inspiration
