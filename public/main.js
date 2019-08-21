@@ -116,7 +116,7 @@ function getZestimate() {
     .then(response => {
       document.querySelector("#price").style.fontSize = "22px"
       document.querySelector("#searchResults").innerHTML = "Explore the Details Link in the Favorite's List Below"
-      document.querySelector("#searchResults").classList.add("pulsateTemp")
+      document.querySelector("#searchResults").classList.add("pulsateExploreLink")
 
       // Convert XML API response to DOM Document (DOMParser constructor)
       let parser = new DOMParser()

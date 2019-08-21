@@ -1204,6 +1204,9 @@ body.mobile-nav-active #mobile-nav-toggle {
 #faq {
   padding: 60px 0;
 }
+.grayFaq{
+  background-color: #f6f7fd;
+}
 
 #faq #faq-list {
   padding: 0;
@@ -1664,6 +1667,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   border: 0;
   outline: none;
   margin: 0;
+  margin-bottom: 9px;
   padding: 9px 20px;
   border-radius: 15px;
   font-size: 14px;
@@ -1761,27 +1765,6 @@ canvas{
   background: none;
 } */
 
-/* Mobile */
-@media only screen and (max-width: 417px){
-  #loginSignup input{
-    width: 94%;
-  }
-  /* .div-loginSignup {
-    width: 75%;
-  } */
-  #mapContainer {
-      width: 100%;
-  }
-  #intro .about-btn, #loginSignup button {
-    width: 94%;
-  }
-  #intro .about-btn-left {
-    width: 94%;
-  }
-  #intro .about-btn-right {
-    width: 94%;
-  }
-}
 p{
   margin: 0;
   display: inline;
@@ -1909,13 +1892,13 @@ p{
   float: right;
 }
 /* Pusalting Favorite's List's "Link" */
-.pulsateTemp {
+.pulsateExploreLink {
     -webkit-animation: pulsate 1.0s ease-out;
-    -webkit-animation-iteration-count: 7;
+    -webkit-animation-iteration-count: 30;
     opacity: 1.0;
 }
 .pulsate {
-    -webkit-animation: pulsate 1.5s ease-out;
+    -webkit-animation: pulsate 1.8s ease-out;
     -webkit-animation-iteration-count: infinite;
     opacity: 1.0;
     font-weight: 500;
@@ -1923,13 +1906,13 @@ p{
 }
 @-webkit-keyframes pulsate {
     0% {
-        opacity: 0.5;
+        opacity: 0.3;
     }
     50% {
         opacity: 1.0;
     }
     100% {
-        opacity: 0.5;
+        opacity: 0.3;
     }
 }
 
@@ -1952,7 +1935,9 @@ p{
   /* NEED TO MEDIA QUERY DEPENDING ON HOW MUCH CONTENT INSIDE HOUSE SECTION */
   /* NEED TO MEDIA QUERY DEPENDING ON HOW MUCH CONTENT INSIDE HOUSE SECTION */
   /* NEED TO MEDIA QUERY DEPENDING ON HOW MUCH CONTENT INSIDE HOUSE SECTION */
-  height: 180vh;
+
+  height: 1150px;
+  /* height: 400vh; */
 
   background: url(../img/house2.jpg) top center;
   background-size: cover;
@@ -1996,6 +1981,10 @@ p{
   flex-direction: column;
   text-align: center;
   padding: 0 15px; */
+}
+.responsive-switch{
+  text-align: center;
+  display: block;
 }
 .savedHouse-container h2{
   color: white;
@@ -2054,7 +2043,9 @@ p{
   width: 40%;
   margin-left: 7%;
   float: left;
-
+}
+.houseAARPImgSec img{
+  width: 57%;
 }
 .houseAARPImgSec h4{
   color: white;
@@ -2237,4 +2228,67 @@ p{
     right: 19px;
     border-right: none;
 }
+}
+/* Mobile */
+@media only screen and (max-width: 417px){
+  #loginSignup input{
+    width: 94%;
+  }
+  /* .div-loginSignup {
+    width: 75%;
+  } */
+  #mapContainer {
+      width: 100%;
+  }
+  #intro .about-btn, #loginSignup button {
+    width: 94%;
+  }
+  #intro .about-btn-left {
+    width: 94%;
+  }
+  #intro .about-btn-right {
+    width: 94%;
+  }
+  /* footer's more links */
+  .more-links{
+    display: none;
+  }
+  #house{
+    height: 2004px;
+  }
+  .savedHouse-container h2{
+    text-align: center;
+        margin-top: 51px;
+  }
+  .houseAARPImgSec h2{
+    margin-bottom: -18px;
+}
+  .houseStreetViewSec {
+      width: 96%;
+display: block;
+margin: 0 auto;
+float: none;
+  }
+  .houseInfoSec {
+    width: 96%;
+    margin: 0 auto;
+    float: none;
+}
+.houseInfoSec ul{
+  letter-spacing: 1px;
+}
+.houseLinkSec {
+    width: 96%;
+    margin: 0 auto;
+    float: none;
+}
+.houseLinkSec ul{
+  letter-spacing: 1px;
+  line-height: 1.4;
+}
+.houseAARPImgSec {
+    width: 96%;
+    margin: 0 auto;
+    float: none;
+  }
 }
