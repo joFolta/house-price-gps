@@ -220,6 +220,7 @@ function mapZoom() {
 
 function mapOn() {
   map.on('load', function() {
+    map.resize();
     // Insert the layer beneath any symbol layer.
     var layers = map.getStyle().layers;
     var labelLayerId;

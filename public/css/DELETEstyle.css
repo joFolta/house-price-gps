@@ -641,6 +641,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   transition: 0.5s;
   line-height: 1;
   margin: 10px auto;
+  margin-bottom: 7px;
   color: #fff;
   -webkit-animation-delay: 0.8s;
   animation-delay: 0.8s;
@@ -1764,16 +1765,17 @@ canvas{
 /* Mobile */
 @media only screen and (max-width: 417px){
   #loginSignup input{
-    width: 94%;
+    width: 55%;
+    margin-bottom: 7px;
   }
-  /* .div-loginSignup {
+  .div-loginSignup {
     width: 75%;
-  } */
+  }
   #mapContainer {
       width: 100%;
   }
   #intro .about-btn, #loginSignup button {
-    width: 94%;
+    width: 55%;
   }
   #intro .about-btn-left {
     width: 94%;
