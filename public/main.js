@@ -1,10 +1,7 @@
-console.log("hello");
+// Javascript Loaded
+console.log("main.js loaded");
 
-// let zillowApiKey = require('../config/zillowApiKey.js')
-// console.log("zillowApiKey.zillowApiKey",zillowApiKey.zillowApiKey);
-
-
-// Hardcoded Newton Coordinates
+// Default Coordinates for Map
 mapboxgl.accessToken = 'pk.eyJ1IjoiY29tcGxleGFwaWNlbnN1c2FuZG1hcCIsImEiOiJjanh6ZnBlYWEwMmptM2RvYW02ZTIwODk0In0.m4zyrwu_-34qVZNFVbKtCQ';
 var map = new mapboxgl.Map({
   container: 'map', // container id
@@ -15,50 +12,10 @@ var map = new mapboxgl.Map({
   zoom: 11 // starting zoom
 });
 
-// *********************************************************************************
-//3D Buildings https://docs.mapbox.com/mapbox-gl-js/example/3d-buildings/
-// *********************************************************************************
-map.on('load', function() {
-  // Insert the layer beneath any symbol layer.
-  var layers = map.getStyle().layers;
-  var labelLayerId;
-  for (var i = 0; i < layers.length; i++) {
-    if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
-      labelLayerId = layers[i].id;
-      break;
-    }
-  }
-  map.addLayer({
-    'id': '3d-buildings',
-    'source': 'composite',
-    'source-layer': 'building',
-    'filter': ['==', 'extrude', 'true'],
-    'type': 'fill-extrusion',
-    'minzoom': 15,
-    'paint': {
-      'fill-extrusion-color': '#aaa',
-      // use an 'interpolate' expression to add a smooth transition effect to the
-      // buildings as the user zooms in
-      'fill-extrusion-height': [
-        'interpolate', ['linear'],
-        ['zoom'],
-        15, 0,
-        15.05, ['get', 'height']
-      ],
-      'fill-extrusion-base': [
-        'interpolate', ['linear'],
-        ['zoom'],
-        15, 0,
-        15.05, ['get', 'min_height']
-      ],
-      'fill-extrusion-opacity': .6
-    }
-  }, labelLayerId);
-});
-// *********************************************************************************
-//End: 3D Buildings https://docs.mapbox.com/mapbox-gl-js/example/3d-buildings/
-// *********************************************************************************
+// 3D Buildings
+mapOn()
 
+// Variables
 let streetAddress = ''
 let city = ''
 let state = ''
@@ -68,36 +25,24 @@ let latitude = 0
 let longitude = 0
 let ZestimateAmt = 0
 let yearBuilt, purpose, liveSqFt, lotSqFt, bedRoom, bathRoom, totalRoom, soldDate, soldPrice, comps, neighValue, moreInfo
-// let zillowApiKey = require('../config/zillowApiKey.js')
-// console.log("zillowApiKey.zillowApiKey",zillowApiKey.zillowApiKey);
 
-
-// https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API
+// HTML5 Geolocation
 function geoFindMe() {
-  console.log("findLatLongAddress clicked");
-  document.querySelector("#where").style.color = "#f82249"
-
+  console.log('Find Nearest House - CLICKED!');
   const findMeStatus = document.querySelector('#findMeStatus');
-  //LINK TO EXTERNAL MAP 2 OF 3
-  // const mapLink = document.querySelector('#map-link');
-  // mapLink.href = '';
-  // mapLink.textContent = '';
 
   function success(position) {
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
-    findMeStatus.textContent = '';
-    //LINK TO EXTERNAL MAP 3 OF 3
-    // mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
-    // mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
-
+    setTimeout(function(){ findMeStatus.textContent = '' }, 800);
+    // findMeStatus.textContent = '';
     // *********************************************************************************
     // TEMPORARY HARD-CODED LAT & LON COORDINATES
     // Newton Coordinates
     // latitude = 42.291881
     // longitude = -71.184769
 
-    // Gallivan Blvd
+    // Mattapan
     // latitude = 42.278241
     // longitude = -71.070810
 
@@ -121,29 +66,22 @@ function geoFindMe() {
     // latitude = 41.8240
     // longitude = -71.4128
 
-    // *********************************************************************************
+    // ********************************************************************************
 
-    map.flyTo({
-      center: [longitude, latitude],
-      speed: .2
-    });
+    // Map Fly
+    mapFly()
 
-
-
-
-
-    // Reverse Geocoding (Mapbox)
+    // Reverse Geocoding (Mapbox API)
     fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${longitude},${latitude}.json?access_token=pk.eyJ1IjoiY29tcGxleGFwaWNlbnN1c2FuZG1hcCIsImEiOiJjanh6ZnBlYWEwMmptM2RvYW02ZTIwODk0In0.m4zyrwu_-34qVZNFVbKtCQ`)
       .then(response => response.json())
       .then(response => {
         document.querySelector("#where").style.fontSize = "22px"
-        console.log(response)
         console.log(response.features[0].place_name)
         rawAddress = response.features[0].place_name
         console.log('length', rawAddress.split(', ').length)
         document.querySelector('#rawAddress').textContent = rawAddress
 
-        //gets Address values to next put into Zillow API
+        //Parses Address Variables input into Zillow API
         parseAddressByLength(rawAddress)
 
       })
@@ -156,27 +94,23 @@ function geoFindMe() {
   function error() {
     findMeStatus.textContent = 'Unable to retrieve your location';
   }
-
   if (!navigator.geolocation) {
     findMeStatus.textContent = 'Geolocation is not supported by your browser';
   } else {
     findMeStatus.textContent = 'Locating…';
     navigator.geolocation.getCurrentPosition(success, error);
   }
-
+  document.querySelector("#where").style.color = "#f82249"
 }
 
-// fetch('https://cors-anywhere.herokuapp.com/http://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id=X1-ZWz17qrfs9kp3f_17jma&address=2114+Bigelow+Ave&citystatezip=Seattle%2C+WA')
-// fetch('https://cors-anywhere.herokuapp.com/http://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id=X1-ZWz17qrfs9kp3f_17jma&address=34 Goldcliff Rd&citystatezip=Malden%2C+MA')
+// Housing Data (Zillow API)
 function getZestimate() {
-  console.log('#getZestimate');
-  document.querySelector("#price").style.color = "#f82249"
+  console.log('Get House Price - CLICKED!');
 
-  // Zoom In - LIVE
-  map.zoomTo(18, {
-    duration: 16000
-  })
-  // fetch(`https://cors-anywhere.herokuapp.com/http://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id=X1-ZWz17qrfs9kp3f_17jma&address=138 Cherry Street&citystatezip=Malden%2C+Massachusetts`)
+  // Map Zoom
+  mapZoom()
+
+  // Input Parsed Address Variables into Zillow API
   fetch(`https://cors-anywhere.herokuapp.com/http://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id=X1-ZWz17qrfs9kp3f_17jma&address=${streetAddress}&citystatezip=${city}%2C+${state}`)
     .then(response => response.text())
     .then(response => {
@@ -184,40 +118,25 @@ function getZestimate() {
       document.querySelector("#searchResults").innerHTML = "Explore the Details Link in the Favorite's List Below"
       document.querySelector("#searchResults").classList.add("pulsateTemp")
 
-      // DOMParser constructor
+      // Convert XML API response to DOM Document (DOMParser constructor)
       let parser = new DOMParser()
       let xml = parser.parseFromString(response, 'application/xml')
 
-
-      console.log('Year Built', xml.querySelector('yearBuilt').innerHTML);
+      // Parsing Real Estate Data
       yearBuilt = xml.querySelector('yearBuilt').innerHTML
-      console.log('yearBuilt', yearBuilt)
-
-
-      console.log('Purpose', xml.querySelector('useCode').innerHTML);
       purpose = xml.querySelector('useCode').innerHTML
-      console.log('Living Space Square Footage', xml.querySelector('finishedSqFt').innerHTML);
       liveSqFt = xml.querySelector('finishedSqFt').innerHTML
-      console.log('Lot Size Square Footage', xml.querySelector('lotSizeSqFt').innerHTML);
       lotSqFt = xml.querySelector('lotSizeSqFt').innerHTML
-      console.log('Bedrooms', xml.querySelector('bedrooms').innerHTML);
       bedRoom = xml.querySelector('bedrooms').innerHTML
-      console.log('Bathrooms', xml.querySelector('bathrooms').innerHTML);
       bathRoom = xml.querySelector('bathrooms').innerHTML
-      console.log('Total Rooms', xml.querySelector('totalRooms').innerHTML);
       totalRoom = xml.querySelector('totalRooms').innerHTML
-      console.log('Last Sold', xml.querySelector('lastSoldDate').innerHTML, xml.querySelector('lastSoldPrice').innerHTML);
       soldDate = xml.querySelector('lastSoldDate').innerHTML
       soldPrice = xml.querySelector('lastSoldPrice').innerHTML
-      console.log('Comparables', xml.querySelector('comparables').innerHTML);
       comps = xml.querySelector('comparables').innerHTML
-      console.log('Neighborhood Home Value Analysis', xml.querySelector('overview').innerHTML);
       neighValue = xml.querySelector('overview').innerHTML
-      console.log('More Info', xml.querySelector('homedetails').innerHTML);
       moreInfo = xml.querySelector('homedetails').innerHTML
-      // let yearBuilt, purpose, liveSqFt, lotSqFt, bedRoom, bathRoom, totalRoom, soldDate, soldPrice, comps, neighValue, moreInfo
 
-      console.log('ZestimateAmt and Address', xml)
+      // Parse House Price and Mathematical Conversions
       ZestimateAmt = xml.querySelector('amount').innerHTML
       // Convert to Number
       ZestimateAmt = Number.parseInt(ZestimateAmt)
@@ -233,32 +152,12 @@ function getZestimate() {
       console.log(`Zillow API error ${error}`)
       document.querySelector("#zestimate").innerText = 'Sorry, Unable To Retrieve Estimate at this time'
     })
-}
-
-function parseAddressByLength(rawAddress) {
-  if (rawAddress.split(', ').length === 4) {
-    streetAddress = rawAddress.split(', ')[0]
-    console.log('streetAddress', streetAddress)
-    city = rawAddress.split(', ')[1]
-    console.log('city', city)
-    state = rawAddress.split(', ')[2].split(' ')[0]
-    console.log('state', state)
-    zip = rawAddress.split(', ')[2].split(' ')[1]
-    console.log('zip', zip);
-  } else {
-    streetAddress = rawAddress.split(', ')[1]
-    console.log('streetAddress', streetAddress)
-    city = rawAddress.split(', ')[2]
-    console.log('city', city)
-    state = rawAddress.split(', ')[3].split(' ')[0]
-    console.log('state', state)
-    zip = rawAddress.split(', ')[3].split(' ')[1]
-    console.log('zip', zip);
-  }
+  document.querySelector("#price").style.color = "#f82249"
 }
 
 // console.log(document.querySelector("#currentUser").innerHTML, "currentUser")
 function saveHouse() {
+  console.log('Save House - CLICKED!');
   document.querySelector("#where").style.color = "white"
   document.querySelector("#price").style.color = "white"
   document.querySelector("#searchResults").style.color = "white"
@@ -291,9 +190,6 @@ function saveHouse() {
         'comps': comps,
         'neighValue': neighValue,
         'moreInfo': moreInfo
-
-        // let yearBuilt, purpose, liveSqFt, lotSqFt, bedRoom, bathRoom, totalRoom, soldDate, soldPrice, comps, neighValue, moreInfo
-
       })
     })
     .then(data => {
@@ -309,10 +205,85 @@ document.querySelector('#getZestimate').addEventListener('click', getZestimate)
 document.querySelector('#saveHouse').addEventListener('click', saveHouse)
 
 
-let trash = document.querySelectorAll(".fa-trash")
+function mapFly() {
+  map.flyTo({
+    center: [longitude, latitude],
+    speed: .2
+  });
+}
+
+function mapZoom() {
+  map.zoomTo(18, {
+    duration: 16000
+  })
+}
+
+function mapOn() {
+  map.on('load', function() {
+    // Insert the layer beneath any symbol layer.
+    var layers = map.getStyle().layers;
+    var labelLayerId;
+    for (var i = 0; i < layers.length; i++) {
+      if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
+        labelLayerId = layers[i].id;
+        break;
+      }
+    }
+    map.addLayer({
+      'id': '3d-buildings',
+      'source': 'composite',
+      'source-layer': 'building',
+      'filter': ['==', 'extrude', 'true'],
+      'type': 'fill-extrusion',
+      'minzoom': 15,
+      'paint': {
+        'fill-extrusion-color': '#aaa',
+        // use an 'interpolate' expression to add a smooth transition effect to the
+        // buildings as the user zooms in
+        'fill-extrusion-height': [
+          'interpolate', ['linear'],
+          ['zoom'],
+          15, 0,
+          15.05, ['get', 'height']
+        ],
+        'fill-extrusion-base': [
+          'interpolate', ['linear'],
+          ['zoom'],
+          15, 0,
+          15.05, ['get', 'min_height']
+        ],
+        'fill-extrusion-opacity': .6
+      }
+    }, labelLayerId);
+  });
+}
+
+function parseAddressByLength(rawAddress) {
+  if (rawAddress.split(', ').length === 4) {
+    streetAddress = rawAddress.split(', ')[0]
+    console.log('streetAddress', streetAddress)
+    city = rawAddress.split(', ')[1]
+    console.log('city', city)
+    state = rawAddress.split(', ')[2].split(' ')[0]
+    console.log('state', state)
+    zip = rawAddress.split(', ')[2].split(' ')[1]
+    console.log('zip', zip);
+  } else {
+    streetAddress = rawAddress.split(', ')[1]
+    console.log('streetAddress', streetAddress)
+    city = rawAddress.split(', ')[2]
+    console.log('city', city)
+    state = rawAddress.split(', ')[3].split(' ')[0]
+    console.log('state', state)
+    zip = rawAddress.split(', ')[3].split(' ')[1]
+    console.log('zip', zip);
+  }
+}
+
+let trash = document.querySelectorAll(".fa-minus-square")
 trash.forEach((element) => {
   element.addEventListener('click', function() {
-    const rawAddress = this.parentNode.parentNode.childNodes[7].innerText
+    const rawAddress = this.parentNode.childNodes[5].innerText
     console.log("rawAddress", rawAddress)
     fetch('removeHouse', {
         method: 'delete',
@@ -351,9 +322,260 @@ star.forEach((element) => {
   });
 });
 
+// DEMO LOCATIONS
+// .demoMatt, .demoWRox, .demoRos, .demoMel, .demoNew
+// document.querySelector(".demoMatt").addEventListener("click", geoFindMe.bind(null, 42.278241, -71.070810), false);
+
+// document.querySelector(".demoWRox").addEventListener("click", geoFindMe.bind(null, 42.261375, -71.151051), false);
+
+// document.querySelector(".demoMatt").addEventListener('click', printlog.bind(null, event, "yay it worked!!!!!"))
+
+// root.addEventListener('click', myPrettyHandler.bind(null, event, arg1, ... ));
+// someObj.addEventListener("click", some_function.bind(null, arg1, arg2), false);
 
 
+// document.querySelector(".demoMatt").onclick = geoFindMe(42.278241, -71.070810)
+// document.querySelector(".demoMatt").addEventListener("click", geoFindMe(42.278241, -71.070810))
+
+// document.querySelector(".demoMatt").onclick = printlog
+
+// WORKING EXAMPLE OF PASSING ARG THROUGH TO addEventListener
+// document.querySelector(".demoMatt").addEventListener("click", printlog.bind(null, "i hope this works"), false);
+// function printlog(input){
+//   let yay = input
+//   console.log(yay);
+//   console.log("haha");
+// }
+
+// Newton Coordinates
+// latitude = 42.291881
+// longitude = -71.184769
+
+// Mattapan
+// latitude = 42.278241
+// longitude = -71.070810
+
+// West Roxbury
+// latitude = 42.261375
+// longitude = -71.151051
+
+// Melrose
+// latitude = 42.444334
+// longitude = -71.031010
+
+// Roslindale
+// latitude = 42.278579
+// longitude = -71.129557
+
+// Noon Meridian Sandwich Shop - Boston
+// latitude = 42.357811
+// longitude = -71.058137
+
+// Providence Coordinates
+// latitude = 41.8240
+// longitude = -71.4128
+//
 
 
+// --------------------DEMO LOCATIONS-------------------------------------------
+// --------------------DEMO LOCATIONS-------------------------------------------
+// --------------------DEMO LOCATIONS-------------------------------------------
+// .demoMatt, .demoWRox, .demoRos, .demoMel, .demoNew
+// document.querySelector(".demoMatt").addEventListener("click", geoFindMe.bind(null, 42.278241, -71.070810), false);
+
+// Demo Mattapan
+document.querySelector(".demoMatt").addEventListener("click", function() {
+  console.log('Mattapan - CLICKED!');
+  const findMeStatus = document.querySelector('#findMeStatus');
+  function success(position) {
+    latitude = 42.278241
+    longitude = -71.070810
+    setTimeout(function(){ findMeStatus.textContent = '' }, 800);
+    // Map Fly
+    mapFly()
+    // Reverse Geocoding (Mapbox API)
+    fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${longitude},${latitude}.json?access_token=pk.eyJ1IjoiY29tcGxleGFwaWNlbnN1c2FuZG1hcCIsImEiOiJjanh6ZnBlYWEwMmptM2RvYW02ZTIwODk0In0.m4zyrwu_-34qVZNFVbKtCQ`)
+      .then(response => response.json())
+      .then(response => {
+        document.querySelector("#where").style.fontSize = "22px"
+        console.log(response.features[0].place_name)
+        rawAddress = response.features[0].place_name
+        console.log('length', rawAddress.split(', ').length)
+        document.querySelector('#rawAddress').textContent = rawAddress
+        //Parses Address Variables input into Zillow API
+        parseAddressByLength(rawAddress)
+      })
+      .catch(error => {
+        console.log(`error ${error}`)
+        alert('Sorry, unable to obtain Address from Mapbox')
+      })
+  }
+  function error() {
+    findMeStatus.textContent = 'Unable to retrieve your location';
+  }
+  if (!navigator.geolocation) {
+    findMeStatus.textContent = 'Geolocation is not supported by your browser';
+  } else {
+    findMeStatus.textContent = 'Locating…';
+    navigator.geolocation.getCurrentPosition(success, error);
+  }
+  document.querySelector("#where").style.color = "#f82249"
+})
+
+// Demo West Roxbury
+document.querySelector(".demoWRox").addEventListener("click", function() {
+  console.log('W Roxbury - CLICKED!');
+  const findMeStatus = document.querySelector('#findMeStatus');
+  function success(position) {
+    latitude = 42.261375
+    longitude = -71.151051
+    setTimeout(function(){ findMeStatus.textContent = '' }, 800);
+    // Map Fly
+    mapFly()
+    // Reverse Geocoding (Mapbox API)
+    fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${longitude},${latitude}.json?access_token=pk.eyJ1IjoiY29tcGxleGFwaWNlbnN1c2FuZG1hcCIsImEiOiJjanh6ZnBlYWEwMmptM2RvYW02ZTIwODk0In0.m4zyrwu_-34qVZNFVbKtCQ`)
+      .then(response => response.json())
+      .then(response => {
+        document.querySelector("#where").style.fontSize = "22px"
+        console.log(response.features[0].place_name)
+        rawAddress = response.features[0].place_name
+        console.log('length', rawAddress.split(', ').length)
+        document.querySelector('#rawAddress').textContent = rawAddress
+        //Parses Address Variables input into Zillow API
+        parseAddressByLength(rawAddress)
+      })
+      .catch(error => {
+        console.log(`error ${error}`)
+        alert('Sorry, unable to obtain Address from Mapbox')
+      })
+  }
+  function error() {
+    findMeStatus.textContent = 'Unable to retrieve your location';
+  }
+  if (!navigator.geolocation) {
+    findMeStatus.textContent = 'Geolocation is not supported by your browser';
+  } else {
+    findMeStatus.textContent = 'Locating…';
+    navigator.geolocation.getCurrentPosition(success, error);
+  }
+  document.querySelector("#where").style.color = "#f82249"
+})
+
+// Demo Roslindale
+document.querySelector(".demoRos").addEventListener("click", function() {
+  console.log('Roslindale - CLICKED!');
+  const findMeStatus = document.querySelector('#findMeStatus');
+  function success(position) {
+    latitude = 42.278579
+    longitude = -71.129557
+    setTimeout(function(){ findMeStatus.textContent = '' }, 800);
+    // Map Fly
+    mapFly()
+    // Reverse Geocoding (Mapbox API)
+    fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${longitude},${latitude}.json?access_token=pk.eyJ1IjoiY29tcGxleGFwaWNlbnN1c2FuZG1hcCIsImEiOiJjanh6ZnBlYWEwMmptM2RvYW02ZTIwODk0In0.m4zyrwu_-34qVZNFVbKtCQ`)
+      .then(response => response.json())
+      .then(response => {
+        document.querySelector("#where").style.fontSize = "22px"
+        console.log(response.features[0].place_name)
+        rawAddress = response.features[0].place_name
+        console.log('length', rawAddress.split(', ').length)
+        document.querySelector('#rawAddress').textContent = rawAddress
+        //Parses Address Variables input into Zillow API
+        parseAddressByLength(rawAddress)
+      })
+      .catch(error => {
+        console.log(`error ${error}`)
+        alert('Sorry, unable to obtain Address from Mapbox')
+      })
+  }
+  function error() {
+    findMeStatus.textContent = 'Unable to retrieve your location';
+  }
+  if (!navigator.geolocation) {
+    findMeStatus.textContent = 'Geolocation is not supported by your browser';
+  } else {
+    findMeStatus.textContent = 'Locating…';
+    navigator.geolocation.getCurrentPosition(success, error);
+  }
+  document.querySelector("#where").style.color = "#f82249"
+})
+
+// Demo Melrose
+document.querySelector(".demoMel").addEventListener("click", function() {
+  console.log('Melrose - CLICKED!');
+  const findMeStatus = document.querySelector('#findMeStatus');
+  function success(position) {
+    latitude = 42.444334
+    longitude = -71.031010
+    setTimeout(function(){ findMeStatus.textContent = '' }, 800);
+    // Map Fly
+    mapFly()
+    // Reverse Geocoding (Mapbox API)
+    fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${longitude},${latitude}.json?access_token=pk.eyJ1IjoiY29tcGxleGFwaWNlbnN1c2FuZG1hcCIsImEiOiJjanh6ZnBlYWEwMmptM2RvYW02ZTIwODk0In0.m4zyrwu_-34qVZNFVbKtCQ`)
+      .then(response => response.json())
+      .then(response => {
+        document.querySelector("#where").style.fontSize = "22px"
+        console.log(response.features[0].place_name)
+        rawAddress = response.features[0].place_name
+        console.log('length', rawAddress.split(', ').length)
+        document.querySelector('#rawAddress').textContent = rawAddress
+        //Parses Address Variables input into Zillow API
+        parseAddressByLength(rawAddress)
+      })
+      .catch(error => {
+        console.log(`error ${error}`)
+        alert('Sorry, unable to obtain Address from Mapbox')
+      })
+  }
+  function error() {
+    findMeStatus.textContent = 'Unable to retrieve your location';
+  }
+  if (!navigator.geolocation) {
+    findMeStatus.textContent = 'Geolocation is not supported by your browser';
+  } else {
+    findMeStatus.textContent = 'Locating…';
+    navigator.geolocation.getCurrentPosition(success, error);
+  }
+  document.querySelector("#where").style.color = "#f82249"
+})
+
+// Demo Newton
+document.querySelector(".demoNew").addEventListener("click", function() {
+  console.log('Newton - CLICKED!');
+  const findMeStatus = document.querySelector('#findMeStatus');
+  function success(position) {
+    latitude = 42.291881
+    longitude = -71.184769
+    setTimeout(function(){ findMeStatus.textContent = '' }, 800);
+    // Map Fly
+    mapFly()
+    // Reverse Geocoding (Mapbox API)
+    fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${longitude},${latitude}.json?access_token=pk.eyJ1IjoiY29tcGxleGFwaWNlbnN1c2FuZG1hcCIsImEiOiJjanh6ZnBlYWEwMmptM2RvYW02ZTIwODk0In0.m4zyrwu_-34qVZNFVbKtCQ`)
+      .then(response => response.json())
+      .then(response => {
+        document.querySelector("#where").style.fontSize = "22px"
+        console.log(response.features[0].place_name)
+        rawAddress = response.features[0].place_name
+        console.log('length', rawAddress.split(', ').length)
+        document.querySelector('#rawAddress').textContent = rawAddress
+        //Parses Address Variables input into Zillow API
+        parseAddressByLength(rawAddress)
+      })
+      .catch(error => {
+        console.log(`error ${error}`)
+        alert('Sorry, unable to obtain Address from Mapbox')
+      })
+  }
+  function error() {
+    findMeStatus.textContent = 'Unable to retrieve your location';
+  }
+  if (!navigator.geolocation) {
+    findMeStatus.textContent = 'Geolocation is not supported by your browser';
+  } else {
+    findMeStatus.textContent = 'Locating…';
+    navigator.geolocation.getCurrentPosition(success, error);
+  }
+  document.querySelector("#where").style.color = "#f82249"
+})
 
 //

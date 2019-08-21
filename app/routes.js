@@ -26,6 +26,24 @@ module.exports = function(app, passport, db, ObjectId) {
   });
 });
 
+// DEMO MODE SECTION =========================
+app.get('/demo', isLoggedIn, function(req, res) {
+var uId = ObjectId(req.session.passport.user)
+var uName
+// GET UNAME FROM OBJECTID
+db.collection('users').find({"_id": uId}).toArray((err, result) => {
+  if (err) return console.log(err)
+  uName = result[0].local.username
+  // GET SAVEDHOUSE BY UNAME
+  db.collection('savedHouses').find({"username": uName}).toArray((err, result) => {
+    if (err) return console.log(err)
+    res.render('demoProfile.ejs', {
+      user : req.user,
+      savedHouses: result
+    })
+  })
+});
+});
 
   // GET individual house pages
   app.get('/savedHouses/:house_id', function(req, res) {

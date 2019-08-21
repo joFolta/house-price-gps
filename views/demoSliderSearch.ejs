@@ -1,0 +1,157 @@
+<form id='buttonWithText' onSubmit={this.onSubmit}>
+  <div id='slider' class='collapsed'>
+
+    <div id="buttonWithText-left" >
+      <input id='findNearestHouse' type='button'  value='Find Nearest House asdfasdfasfasdf'>
+      <button id="toggle" type="button" name="button">EDIT</button>
+    </div>
+
+    <input type='text' id='input' tabindex='-1' placeholder='username' size=10>
+    <input type='submit' id='ok' tabindex='-1' value='Searchasdfasdfasdfasdf'>
+  </div>
+</form>
+
+
+<!-- CSS -->
+/* Button to text input */
+#buttonWithText {
+  /* overflow: hidden; */
+  overflow: visible;
+        display: inline-block;
+  width: 200px;
+}
+#slider {
+  display: flex;
+  width: 200%;
+  transition: 0.5s;
+}
+#slider.expanded {
+  transform: translateX(-50%);
+}
+#buttonWithText-left{
+  display: flex;
+  /* font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 14px; */
+  /* letter-spacing: 1px; */
+  /* padding: 12px 32px; */
+  /* border-radius: 50px; */
+  /* transition: 0.5s; */
+  /* line-height: 1; */
+  /* margin: 10px auto; */
+  /* color: #fff; */
+  /* -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s; */
+  /* border: 2px solid #f82249; */
+  /* added */
+  /* background: none; */
+
+}
+
+
+
+#toggle {
+  flex: 0 0 20%;
+
+  /* font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 14px; */
+  /* letter-spacing: 1px; */
+  /* padding: 12px 32px;
+  border-radius: 50px; */
+  /* transition: 0.5s; */
+  /* line-height: 1; */
+  /* margin: 10px auto; */
+  color: #fff;
+  /* -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s; */
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+
+  border: 2px solid #f82249;
+  /* added */
+  background: none;
+}
+#findNearestHouse{
+ color: white;
+ flex: 0 0 30%;
+ /* font-family: "Raleway", sans-serif;
+ font-weight: 500;
+ font-size: 14px; */
+ /* letter-spacing: 1px; */
+ padding: 12px 32px;
+
+ /* padding: 12px 0; */
+ /* border-radius: 50px; */
+ /* transition: 0.5s; */
+ /* line-height: 1; */
+ /* margin: 10px auto; */
+ color: #fff;
+ /* -webkit-animation-delay: 0.8s;
+ animation-delay: 0.8s; */
+ border: 2px solid #f82249;
+ border-top-left-radius: 50px;
+ border-bottom-left-radius: 50px;
+ /* added */
+ background: none;
+}
+#input {
+  flex: auto;
+
+  /* font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  padding: 12px 32px; */
+  /* border-radius: 50px; */
+  /* transition: 0.5s;
+  line-height: 1; */
+  /* margin: 10px auto; */
+  color: #fff;
+  /* -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s; */
+  /* border: 2px solid #f82249; */
+  /* added */
+  background: none;
+}
+#ok {
+  flex: none;
+
+  /* font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px; */
+  /* padding: 12px 32px; */
+  /* border-radius: 50px; */
+  /* transition: 0.5s;
+  line-height: 1; */
+  /* margin: 10px auto; */
+  color: #fff;
+  /* -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s; */
+  /* border: 2px solid #f82249; */
+  /* added */
+  background: none;
+}
+
+<!-- JavaScript -->
+// Button to text input
+function expand() {
+  slider.className = 'expanded';
+  setTimeout(function() {
+    input.focus();
+  }, 500);
+}
+function collapse() {
+  slider.className = 'collapsed';
+  input.blur();
+}
+toggle.onclick = expand;
+input.onblur = function() {
+  setTimeout(collapse, 100);
+}
+buttonWithText.onsubmit = function(e) {
+  e.preventDefault();
+//  alert("New username: " + input.value);
+  collapse();
+}

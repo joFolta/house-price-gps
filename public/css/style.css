@@ -622,12 +622,75 @@ body.mobile-nav-active #mobile-nav-toggle {
   -webkit-animation-delay: 0.8s;
   animation-delay: 0.8s;
   border: 2px solid #f82249;
+  /* added */
+  background: none;
 }
 
 #intro .about-btn:hover {
   background: #f82249;
   color: #fff;
 }
+/* .about-btn-left for "Button to Text Input" */
+#intro .about-btn-left {
+  /* width: 28%; */
+  /* width: 30%; */
+  width: 50%;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 32px;
+  border-radius: 50px;
+  /* sharp edge border */
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  transition: 0.5s;
+  line-height: 1;
+  margin: 10px auto;
+  color: #fff;
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+  border: 2px solid #f82249;
+  /* added */
+  background: none;
+}
+
+#intro .about-btn-left:hover {
+  background: #f82249;
+  color: #fff;
+}
+
+/* .about-btn-right for "Button to Text Input" */
+#intro .about-btn-right {
+  /* width: 28%; */
+  width: 10%;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 32px;
+  border-radius: 50px;
+  /* sharp edge border */
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  transition: 0.5s;
+  line-height: 1;
+  margin: 10px auto;
+  color: #fff;
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+  border: 2px solid #f82249;
+  /* added */
+  background: none;
+}
+
+#intro .about-btn-right:hover {
+  background: #f82249;
+  color: #fff;
+}
+
 
 @-webkit-keyframes pulsate-btn {
   0% {
@@ -1803,9 +1866,9 @@ canvas{
 .api-btn{
   width: 30%;
 }
-button.about-btn{
+/* button.about-btn{
   background: none;
-}
+} */
 
 /* Mobile */
 @media only screen and (max-width: 417px){
@@ -1816,6 +1879,12 @@ button.about-btn{
       width: 100%;
   }
   #intro .about-btn, #loginSignup button {
+    width: 94%;
+  }
+  #intro .about-btn-left {
+    width: 94%;
+  }
+  #intro .about-btn-right {
     width: 94%;
   }
 }
@@ -1837,17 +1906,95 @@ p{
   font-size: 14px;
   outline: none;
 }
-.left-sec{
-  width: 70%;
-  /* height: 300px; */
+.demoLabel{
+  width: 120px;
+  position: absolute;
+  right: 20px;
+  top: 30px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  /* letter-spacing: 1px; */
+  /* display: inline-block; */
+  /* padding: 12px 32px; */
+  padding-bottom: 8px;
+  transition: 0.5s;
+  line-height: .9;
+  /* margin: 10px auto; */
+  color: #fff;
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+  border-bottom: 2px solid #f82249;
+  /* added */
+  background: none;
+
 }
+.demoMatt, .demoWRox, .demoRos, .demoMel, .demoNew{
+  width: 120px;
+  position: absolute;
+  right: 20px;
+  top: 90px;
+  text-align: left;
+  padding-left: 20px;
+
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  /* letter-spacing: 1px; */
+  /* display: inline-block; */
+  /* padding: 12px 32px; */
+  border-radius: 50px;
+  transition: 0.5s;
+  /* line-height: 1; */
+  /* margin: 10px auto; */
+  color: #fff;
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+  border: 2px solid #f82249;
+  /* added */
+  background: none;
+}
+.demoMatt:hover, .demoWRox:hover, .demoRos:hover, .demoMel:hover, .demoNew:hover {
+  background: #f82249;
+  color: #fff;
+}
+.demoWRox{
+  width: 120px;
+  position: absolute;
+  right: 20px;
+  top: 130px;
+}
+.demoRos{
+  width: 120px;
+  position: absolute;
+  right: 20px;
+  top: 170px;
+}
+.demoMel{
+  width: 120px;
+  position: absolute;
+  right: 20px;
+  top: 210px;
+}
+.demoNew{
+  width: 120px;
+  position: absolute;
+  right: 20px;
+  top: 250px;
+}
+/* .left-sec{
+  width: 70%;
+  height: 300px;
+} */
 /* .right-sec{
   width: 10%;
 
 } */
+
 #findMeStatus,#rawAddress,#zestimate{
   display: block;
   text-align: center;
+  color: white;
   /* margin: 36px 0 -17px 0; */
   /* margin: 36px 0 -80px 0; */
 
@@ -1859,10 +2006,18 @@ p{
   color: #f82249;
   /* color: #f82249 !important;; */
 }
+/* Delete Icon */
+.fa-minus-square{
+  color: lightgray;
+  float: right;
+}
+.space{
+  float: right;
+}
 /* Pusalting Favorite's List's "Link" */
 .pulsateTemp {
-    -webkit-animation: pulsate 1.5s ease-out;
-    -webkit-animation-iteration-count: 2;
+    -webkit-animation: pulsate 1.0s ease-out;
+    -webkit-animation-iteration-count: 7;
     opacity: 1.0;
 }
 .pulsate {
@@ -1870,6 +2025,7 @@ p{
     -webkit-animation-iteration-count: infinite;
     opacity: 1.0;
     font-weight: 500;
+    float: right;
 }
 @-webkit-keyframes pulsate {
     0% {

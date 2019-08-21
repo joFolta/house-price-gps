@@ -66,7 +66,7 @@
           <li><a href="#favorites">Favorites</a></li>
           <li><a href="#footer">Contact</a></li>
           <li><a href="/logout">Logout</a></li>
-          <li class="buy-tickets"><a href="/demo">Demo Mode</a></li>
+          <li class="buy-tickets"><a href="/profile">Non-Demo</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
@@ -89,44 +89,13 @@
         <div id='map'></div>
       </section>
 
+      <p class="demoLabel">Test Locations</p>
 
-
-
-      <!-- <label for="">Test Locations</label> -->
-      <!-- <button class="demoMatt" type="button" name="button">Mattapan</button>
-      <button class="demoWRox" type="button" name="button">West Roxbury</button>
-      <button class="demoRos" type="button" name="button">Roslindale</button>
-      <button class="demoMel" type="button" name="button">Melrose</button>
-      <button class="demoNew" type="button" name="button">Newton</button> -->
-
-      <!-- OR -->
-
-      <!-- <input class="demoMatt" type="text" name="" value=""> -->
-
-
-      <!-- <a href="" class="about-btn" id="findLatLongAddress"><span class="fa fa-user"></span> Find Nearest House</a> -->
-
-      <!-- <section class="left-sec">
-        <p>this is the greaest thisgn eve
-        this is the greaest thisgn eve
-        this is the greaest thisgn eve
-        this is the greaest thisgn eve</p>
-      </section> -->
-
-
-      <!-- <form id='buttonWithText' onSubmit={this.onSubmit}>
-        <div id='slider' class='collapsed'>
-
-          <div id="buttonWithText-left" >
-            <input id='findNearestHouse' type='button'  value='Find Nearest House asdfasdfasfasdf'>
-            <button id="toggle" type="button" name="button">EDIT</button>
-          </div>
-
-          <input type='text' id='input' tabindex='-1' placeholder='username' size=10>
-          <input type='submit' id='ok' tabindex='-1' value='Searchasdfasdfasdfasdf'>
-        </div>
-      </form> -->
-
+      <button class="demoMatt" type="button" name="button"><span class="fa fa-user"></span> Mattapan</button>
+      <button class="demoWRox" type="button" name="button"><span class="fa fa-user"></span> W Roxbury</button>
+      <button class="demoRos" type="button" name="button"><span class="fa fa-user"></span> Roslindale</button>
+      <button class="demoMel" type="button" name="button"><span class="fa fa-user"></span> Melrose</button>
+      <button class="demoNew" type="button" name="button"><span class="fa fa-user"></span> Newton</button>
 
       <section>
         <button class="about-btn api-btn" id="findLatLongAddress"><span class="fa fa-user"></span> Find Nearest House</button>
@@ -179,8 +148,9 @@
               <!-- <span><span class="fa fa-star"></span></span> -->
               <!-- <span><%= savedHouses[i].starred %></span> -->
               <span><%= savedHouses[i].rawAddress %></span>
+              <span class="fa fa-minus-square"></span>
+              <span class="space">&nbsp</span>
               <a class="pulsate" href="/savedHouses/<%= savedHouses[i]._id %>">Link</a>
-              <span><span class="fa fa-minus-square"></span></span>
             </h4>
             <h4>PRICE <%= savedHouses[i].price %></h4>
           </li>
