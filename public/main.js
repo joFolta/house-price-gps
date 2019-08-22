@@ -34,7 +34,9 @@ function geoFindMe() {
   function success(position) {
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
-    setTimeout(function(){ findMeStatus.textContent = '' }, 800);
+    setTimeout(function() {
+      findMeStatus.textContent = ''
+    }, 800);
     // findMeStatus.textContent = '';
     // *********************************************************************************
     // TEMPORARY HARD-CODED LAT & LON COORDINATES
@@ -101,6 +103,14 @@ function geoFindMe() {
     navigator.geolocation.getCurrentPosition(success, error);
   }
   document.querySelector("#where").style.color = "#f82249"
+  document.querySelector(".searchStatusMap").innerHTML = "Scroll Down For Address"
+  setTimeout(function() {
+    document.querySelector(".searchStatusMap").classList.add("pulsateScrollDown")
+  }, 2000);
+  setTimeout(function() {
+    document.querySelector(".searchStatusMap").classList.remove("pulsateScrollDown")
+  }, 6000);
+
 }
 
 // Housing Data (Zillow API)
@@ -153,6 +163,13 @@ function getZestimate() {
       document.querySelector("#zestimate").innerText = 'Sorry, Unable To Retrieve Estimate at this time'
     })
   document.querySelector("#price").style.color = "#f82249"
+  document.querySelector(".searchStatusMap").innerHTML = "Scroll Down For Price"
+  setTimeout(function() {
+    document.querySelector(".searchStatusMap").classList.add("pulsateScrollDown")
+  }, 2000);
+  setTimeout(function() {
+    document.querySelector(".searchStatusMap").classList.remove("pulsateScrollDown")
+  }, 6000);
 }
 
 // console.log(document.querySelector("#currentUser").innerHTML, "currentUser")
@@ -388,10 +405,13 @@ star.forEach((element) => {
 document.querySelector(".demoMatt").addEventListener("click", function() {
   console.log('Mattapan - CLICKED!');
   const findMeStatus = document.querySelector('#findMeStatus');
+
   function success(position) {
     latitude = 42.278241
     longitude = -71.070810
-    setTimeout(function(){ findMeStatus.textContent = '' }, 800);
+    setTimeout(function() {
+      findMeStatus.textContent = ''
+    }, 800);
     // Map Fly
     mapFly()
     // Reverse Geocoding (Mapbox API)
@@ -411,6 +431,7 @@ document.querySelector(".demoMatt").addEventListener("click", function() {
         alert('Sorry, unable to obtain Address from Mapbox')
       })
   }
+
   function error() {
     findMeStatus.textContent = 'Unable to retrieve your location';
   }
@@ -421,16 +442,26 @@ document.querySelector(".demoMatt").addEventListener("click", function() {
     navigator.geolocation.getCurrentPosition(success, error);
   }
   document.querySelector("#where").style.color = "#f82249"
+  document.querySelector(".searchStatusMap").innerHTML = "Scroll Down For Address"
+  setTimeout(function() {
+    document.querySelector(".searchStatusMap").classList.add("pulsateScrollDown")
+  }, 2000);
+  setTimeout(function() {
+    document.querySelector(".searchStatusMap").classList.remove("pulsateScrollDown")
+  }, 6000);
 })
 
 // Demo West Roxbury
 document.querySelector(".demoWRox").addEventListener("click", function() {
   console.log('W Roxbury - CLICKED!');
   const findMeStatus = document.querySelector('#findMeStatus');
+
   function success(position) {
     latitude = 42.261375
     longitude = -71.151051
-    setTimeout(function(){ findMeStatus.textContent = '' }, 800);
+    setTimeout(function() {
+      findMeStatus.textContent = ''
+    }, 800);
     // Map Fly
     mapFly()
     // Reverse Geocoding (Mapbox API)
@@ -450,6 +481,7 @@ document.querySelector(".demoWRox").addEventListener("click", function() {
         alert('Sorry, unable to obtain Address from Mapbox')
       })
   }
+
   function error() {
     findMeStatus.textContent = 'Unable to retrieve your location';
   }
@@ -460,16 +492,26 @@ document.querySelector(".demoWRox").addEventListener("click", function() {
     navigator.geolocation.getCurrentPosition(success, error);
   }
   document.querySelector("#where").style.color = "#f82249"
+  document.querySelector(".searchStatusMap").innerHTML = "Scroll Down For Address"
+  setTimeout(function() {
+    document.querySelector(".searchStatusMap").classList.add("pulsateScrollDown")
+  }, 2000);
+  setTimeout(function() {
+    document.querySelector(".searchStatusMap").classList.remove("pulsateScrollDown")
+  }, 6000);
 })
 
 // Demo Roslindale
 document.querySelector(".demoRos").addEventListener("click", function() {
   console.log('Roslindale - CLICKED!');
   const findMeStatus = document.querySelector('#findMeStatus');
+
   function success(position) {
     latitude = 42.278579
     longitude = -71.129557
-    setTimeout(function(){ findMeStatus.textContent = '' }, 800);
+    setTimeout(function() {
+      findMeStatus.textContent = ''
+    }, 800);
     // Map Fly
     mapFly()
     // Reverse Geocoding (Mapbox API)
@@ -489,6 +531,7 @@ document.querySelector(".demoRos").addEventListener("click", function() {
         alert('Sorry, unable to obtain Address from Mapbox')
       })
   }
+
   function error() {
     findMeStatus.textContent = 'Unable to retrieve your location';
   }
@@ -499,16 +542,26 @@ document.querySelector(".demoRos").addEventListener("click", function() {
     navigator.geolocation.getCurrentPosition(success, error);
   }
   document.querySelector("#where").style.color = "#f82249"
+  document.querySelector(".searchStatusMap").innerHTML = "Scroll Down For Address"
+  setTimeout(function() {
+    document.querySelector(".searchStatusMap").classList.add("pulsateScrollDown")
+  }, 2000);
+  setTimeout(function() {
+    document.querySelector(".searchStatusMap").classList.remove("pulsateScrollDown")
+  }, 6000);
 })
 
 // Demo Melrose
 document.querySelector(".demoMel").addEventListener("click", function() {
   console.log('Melrose - CLICKED!');
   const findMeStatus = document.querySelector('#findMeStatus');
+
   function success(position) {
     latitude = 42.444334
     longitude = -71.031010
-    setTimeout(function(){ findMeStatus.textContent = '' }, 800);
+    setTimeout(function() {
+      findMeStatus.textContent = ''
+    }, 800);
     // Map Fly
     mapFly()
     // Reverse Geocoding (Mapbox API)
@@ -528,6 +581,7 @@ document.querySelector(".demoMel").addEventListener("click", function() {
         alert('Sorry, unable to obtain Address from Mapbox')
       })
   }
+
   function error() {
     findMeStatus.textContent = 'Unable to retrieve your location';
   }
@@ -538,16 +592,26 @@ document.querySelector(".demoMel").addEventListener("click", function() {
     navigator.geolocation.getCurrentPosition(success, error);
   }
   document.querySelector("#where").style.color = "#f82249"
+  document.querySelector(".searchStatusMap").innerHTML = "Scroll Down For Address"
+  setTimeout(function() {
+    document.querySelector(".searchStatusMap").classList.add("pulsateScrollDown")
+  }, 2000);
+  setTimeout(function() {
+    document.querySelector(".searchStatusMap").classList.remove("pulsateScrollDown")
+  }, 6000);
 })
 
 // Demo Newton
 document.querySelector(".demoNew").addEventListener("click", function() {
   console.log('Newton - CLICKED!');
   const findMeStatus = document.querySelector('#findMeStatus');
+
   function success(position) {
     latitude = 42.291881
     longitude = -71.184769
-    setTimeout(function(){ findMeStatus.textContent = '' }, 800);
+    setTimeout(function() {
+      findMeStatus.textContent = ''
+    }, 800);
     // Map Fly
     mapFly()
     // Reverse Geocoding (Mapbox API)
@@ -567,6 +631,7 @@ document.querySelector(".demoNew").addEventListener("click", function() {
         alert('Sorry, unable to obtain Address from Mapbox')
       })
   }
+
   function error() {
     findMeStatus.textContent = 'Unable to retrieve your location';
   }
@@ -577,6 +642,13 @@ document.querySelector(".demoNew").addEventListener("click", function() {
     navigator.geolocation.getCurrentPosition(success, error);
   }
   document.querySelector("#where").style.color = "#f82249"
+  document.querySelector(".searchStatusMap").innerHTML = "Scroll Down For Address"
+  setTimeout(function() {
+    document.querySelector(".searchStatusMap").classList.add("pulsateScrollDown")
+  }, 2000);
+  setTimeout(function() {
+    document.querySelector(".searchStatusMap").classList.remove("pulsateScrollDown")
+  }, 6000);
 })
 
 //

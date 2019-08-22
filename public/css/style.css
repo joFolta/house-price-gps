@@ -4,11 +4,9 @@
   Author: BootstrapMade.com
   License: https://bootstrapmade.com/license/
 */
-
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
-
 body {
   background: #fff;
   color: #2f3138;
@@ -55,7 +53,6 @@ h6 {
 }
 
 /* Prelaoder */
-
 #preloader {
   position: fixed;
   left: 0;
@@ -68,7 +65,6 @@ h6 {
 }
 
 /* Back to top button */
-
 .back-to-top {
   position: fixed;
   display: none;
@@ -101,7 +97,6 @@ h6 {
 
 /* Sections Header
 --------------------------------*/
-
 .section-header {
   /* margin-bottom: 60px; */
   margin-bottom: 20px;
@@ -145,7 +140,6 @@ h6 {
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
-
 #header {
   height: 90px;
   padding: 25px 0;
@@ -194,9 +188,7 @@ h6 {
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
-
 /* Nav Menu Essentials */
-
 .nav-menu,
 .nav-menu * {
   margin: 0;
@@ -217,12 +209,12 @@ h6 {
   white-space: nowrap;
 }
 
-.nav-menu > li {
+.nav-menu>li {
   float: left;
 }
 
-.nav-menu li:hover > ul,
-.nav-menu li.sfHover > ul {
+.nav-menu li:hover>ul,
+.nav-menu li.sfHover>ul {
   display: block;
 }
 
@@ -236,7 +228,6 @@ h6 {
 }
 
 /* Nav Menu Arrows */
-
 .sf-arrows .sf-with-ul {
   padding-right: 30px;
 }
@@ -255,14 +246,12 @@ h6 {
 }
 
 /* Nav Meu Container */
-
 #nav-menu-container {
   float: right;
   margin: 0;
 }
 
 /* Nav Meu Styling */
-
 .nav-menu a {
   padding: 8px;
   text-decoration: none;
@@ -279,11 +268,11 @@ h6 {
   color: #fff;
 }
 
-.nav-menu > li {
+.nav-menu>li {
   margin-left: 8px;
 }
 
-.nav-menu > li > a:before {
+.nav-menu>li>a:before {
   content: "";
   position: absolute;
   width: 0;
@@ -296,8 +285,8 @@ h6 {
 }
 
 .nav-menu a:hover:before,
-.nav-menu li:hover > a:before,
-.nav-menu .menu-active > a:before {
+.nav-menu li:hover>a:before,
+.nav-menu .menu-active>a:before {
   visibility: visible;
   width: 100%;
 }
@@ -347,7 +336,7 @@ h6 {
   border-radius: 3px;
 }
 
-.nav-menu ul li:hover > a {
+.nav-menu ul li:hover>a {
   background: #f82249;
   color: #fff;
 }
@@ -357,7 +346,6 @@ h6 {
 }
 
 /* Mobile Nav Toggle */
-
 #mobile-nav-toggle {
   position: fixed;
   right: 0;
@@ -378,7 +366,6 @@ h6 {
 }
 
 /* Mobile Nav Styling */
-
 #mobile-nav {
   position: fixed;
   top: 0;
@@ -421,9 +408,9 @@ h6 {
   width: 100%;
   display: block;
   outline: none;
-
 }
-#mobile-nav .buy-tickets a{
+
+#mobile-nav .buy-tickets a {
   color: #f82249;
   text-shadow: 1px 1px black;
   border-radius: 50px;
@@ -431,11 +418,7 @@ h6 {
   width: 100%;
   /* padding: 12px 32px;
   margin: 10px auto; */
-
-
-
 }
-
 
 #mobile-nav ul li a:hover {
   color: #f82249;
@@ -474,7 +457,6 @@ h6 {
 }
 
 /* Mobile Nav body classes */
-
 body.mobile-nav-active {
   overflow: hidden;
 }
@@ -490,7 +472,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 /*--------------------------------------------------------------
 # Intro Section
 --------------------------------------------------------------*/
-
 #intro {
   width: 100%;
   /* 100% viewport ht; give contents height %'s */
@@ -523,7 +504,6 @@ body.mobile-nav-active #mobile-nav-toggle {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-
   /* ------changed layout - map on left -------*/
   /* ------changed layout - map on left -------*/
   /* ------changed layout - map on left -------*/
@@ -629,6 +609,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   animation: none;
   border-radius: 0;
 }
+
 #intro .about-btn {
   width: 28%;
   font-family: "Raleway", sans-serif;
@@ -653,6 +634,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   background: #f82249;
   color: #fff;
 }
+
 /* .about-btn-left for "Button to Text Input" */
 #intro .about-btn-left {
   /* width: 28%; */
@@ -714,7 +696,6 @@ body.mobile-nav-active #mobile-nav-toggle {
   color: #fff;
 }
 
-
 @-webkit-keyframes pulsate-btn {
   0% {
     -webkit-transform: scale(0.6, 0.6);
@@ -746,7 +727,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
-
 #about {
   background: url("../img/house3.jpg");
   background-size: cover;
@@ -772,7 +752,6 @@ body.mobile-nav-active #mobile-nav-toggle {
   margin-bottom: 10px;
   color: #fff;
 } */
-
 #about h3 {
   font-size: 18px;
   font-weight: bold;
@@ -792,7 +771,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 /*--------------------------------------------------------------
 # Speakers Section
 --------------------------------------------------------------*/
-
 #speakers {
   padding: 60px 0 30px 0;
 }
@@ -889,7 +867,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 /*--------------------------------------------------------------
 # Schedule Section
 --------------------------------------------------------------*/
-
 #schedule {
   padding: 60px 0 60px 0;
 }
@@ -987,7 +964,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 /*--------------------------------------------------------------
 # Venue Section
 --------------------------------------------------------------*/
-
 #venue {
   padding: 60px 0;
 }
@@ -1053,7 +1029,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 /*--------------------------------------------------------------
 # Hotels Section
 --------------------------------------------------------------*/
-
 #hotels {
   padding: 60px 0;
 }
@@ -1113,7 +1088,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 /*--------------------------------------------------------------
 # Gallery Section
 --------------------------------------------------------------*/
-
 #gallery {
   padding: 60px;
   overflow: hidden;
@@ -1159,7 +1133,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 /*--------------------------------------------------------------
 # supporters Section
 --------------------------------------------------------------*/
-
 #supporters {
   padding: 60px 0;
 }
@@ -1200,11 +1173,11 @@ body.mobile-nav-active #mobile-nav-toggle {
 /*--------------------------------------------------------------
 # F.A.Q Section
 --------------------------------------------------------------*/
-
 #faq {
   padding: 60px 0;
 }
-.grayFaq{
+
+.grayFaq {
   background-color: #f6f7fd;
 }
 
@@ -1254,7 +1227,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 /*--------------------------------------------------------------
 # Subscribe Section
 --------------------------------------------------------------*/
-
 #subscribe {
   padding: 60px;
   background: url(../img/subscribe-bg.jpg) center center no-repeat;
@@ -1308,7 +1280,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 /*--------------------------------------------------------------
 # Buy Tickets Section
 --------------------------------------------------------------*/
-
 #buy-tickets {
   padding: 60px 0;
 }
@@ -1316,7 +1287,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 #buy-tickets .card {
   border: none;
   border-radius: 5px;
-  transition: all  0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   box-shadow: 0 10px 25px 0 rgba(6, 12, 34, 0.1);
 }
 
@@ -1384,7 +1355,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 /*--------------------------------------------------------------
 # Contact Section
 --------------------------------------------------------------*/
-
 #contact {
   padding: 60px 0;
 }
@@ -1488,7 +1458,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
-
 #footer {
   background: #101522;
   padding: 0 0 25px 0;
@@ -1635,32 +1604,18 @@ body.mobile-nav-active #mobile-nav-toggle {
   color: #ddd;
 }
 
-
-
-
-
-
-
 /*--------------------------------------------------------------
 # MY CHANGES
 --------------------------------------------------------------*/
-
 /*--------------------------------------------------------------
 # MY CHANGES
 --------------------------------------------------------------*/
-
 /*--------------------------------------------------------------
 # MY CHANGES
 --------------------------------------------------------------*/
-
-
-
-
-
 /*--------------------------------------------------------------
 # Login Section (modified from Subscribe Section)
 --------------------------------------------------------------*/
-
 #loginSignup input {
   background: #fff;
   color: #060c22;
@@ -1692,29 +1647,20 @@ body.mobile-nav-active #mobile-nav-toggle {
 /*--------------------------------------------------------------
 # MAPBOX CSS
 --------------------------------------------------------------*/
-
-#mapContainer{
-
+#mapContainer {
   width: 75%;
-
   /* width: 100%; */
-
   /* height: 600px; */
   /* height: 70%; */
-    height: 83%;
-    /* height: 55%; */
+  height: 83%;
+  /* height: 55%; */
   border: 4px solid black;
   /* To Float Left
   margin: 0; */
   /* to CENTER MAP */
   margin: auto;
   position: relative;
-
   /* bottom: 17px; */
-
-
-
-
   /* -webkit-box-pack: left;
   -ms-flex-pack: left;
   justify-content: left;
@@ -1727,22 +1673,21 @@ body.mobile-nav-active #mobile-nav-toggle {
   flex-direction: row;
   text-align: left; */
 }
-#map{
-  position:absolute;
-  top:0;
-  bottom:0;
-  width:100%;
+
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
   border-radius: 3%;
   /* display: inline; */
-
 }
-canvas{
+
+canvas {
   /* right: 0px; */
   left: 0px;
-
   /* map fills container 100% */
   width: 100%;
-
   /* -webkit-box-pack: left;
   -ms-flex-pack: left;
   justify-content: left;
@@ -1756,24 +1701,23 @@ canvas{
   text-align: left; */
 }
 
-
-
-.api-btn{
+.api-btn {
   width: 30%;
 }
+
 /* button.about-btn{
   background: none;
 } */
-
-p{
+p {
   margin: 0;
   display: inline;
 }
-#intro p span{
+
+#intro p span {
   display: block;
 }
 
-#welcome{
+#welcome {
   padding: 8px;
   text-decoration: none;
   display: inline-block;
@@ -1783,7 +1727,8 @@ p{
   font-size: 14px;
   outline: none;
 }
-.demoLabel{
+
+.demoLabel {
   width: 120px;
   position: absolute;
   right: 20px;
@@ -1804,16 +1749,15 @@ p{
   border-bottom: 2px solid #f82249;
   /* added */
   background: none;
-
 }
-.demoMatt, .demoWRox, .demoRos, .demoMel, .demoNew{
+
+.demoMatt, .demoWRox, .demoRos, .demoMel, .demoNew {
   width: 120px;
   position: absolute;
   right: 20px;
   top: 90px;
   text-align: left;
   padding-left: 20px;
-
   font-family: "Raleway", sans-serif;
   font-weight: 500;
   font-size: 14px;
@@ -1831,34 +1775,40 @@ p{
   /* added */
   background: none;
 }
+
 .demoMatt:hover, .demoWRox:hover, .demoRos:hover, .demoMel:hover, .demoNew:hover {
   background: #f82249;
   color: #fff;
 }
-.demoWRox{
+
+.demoWRox {
   width: 120px;
   position: absolute;
   right: 20px;
   top: 130px;
 }
-.demoRos{
+
+.demoRos {
   width: 120px;
   position: absolute;
   right: 20px;
   top: 170px;
 }
-.demoMel{
+
+.demoMel {
   width: 120px;
   position: absolute;
   right: 20px;
   top: 210px;
 }
-.demoNew{
+
+.demoNew {
   width: 120px;
   position: absolute;
   right: 20px;
   top: 250px;
 }
+
 /* .left-sec{
   width: 70%;
   height: 300px;
@@ -1867,59 +1817,70 @@ p{
   width: 10%;
 
 } */
-
-#findMeStatus,#rawAddress,#zestimate{
+#findMeStatus, #rawAddress, #zestimate {
   display: block;
   text-align: center;
   color: white;
   /* margin: 36px 0 -17px 0; */
   /* margin: 36px 0 -80px 0; */
-
 }
-#about h2{
+
+#about h2 {
   color: #f82249;
 }
-#about #searchResults{
+
+#about #searchResults {
   color: #f82249;
   /* color: #f82249 !important;; */
 }
+
 /* Delete Icon */
-.fa-minus-square{
+.fa-minus-square {
   color: lightgray;
   float: right;
 }
-.space{
+
+.space {
   float: right;
 }
+
 /* Pusalting Favorite's List's "Link" */
+.pulsateScrollDown {
+  -webkit-animation: pulsate 1.5s ease-out;
+  -webkit-animation-iteration-count: 4;
+  opacity: 0;
+}
 .pulsateExploreLink {
-    -webkit-animation: pulsate 1.0s ease-out;
-    -webkit-animation-iteration-count: 30;
-    opacity: 1.0;
+  -webkit-animation: pulsate 1.0s ease-out;
+  -webkit-animation-iteration-count: 30;
+  opacity: 1.0;
 }
+
 .pulsate {
-    -webkit-animation: pulsate 1.8s ease-out;
-    -webkit-animation-iteration-count: infinite;
-    opacity: 1.0;
-    font-weight: 500;
-    float: right;
+  -webkit-animation: pulsate 1.8s ease-out;
+  -webkit-animation-iteration-count: infinite;
+  opacity: 1.0;
+  font-weight: 500;
+  float: right;
 }
+
 @-webkit-keyframes pulsate {
-    0% {
-        opacity: 0.3;
-    }
-    50% {
-        opacity: 1.0;
-    }
-    100% {
-        opacity: 0.3;
-    }
+  0% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 1.0;
+  }
+
+  100% {
+    opacity: 0.3;
+  }
 }
 
 #house {
   width: 100%;
   /* 100% viewport ht; give contents height %'s */
-
   /* NEED TO MEDIA QUERY DEPENDING ON HOW MUCH CONTENT INSIDE HOUSE SECTION */
   /* NEED TO MEDIA QUERY DEPENDING ON HOW MUCH CONTENT INSIDE HOUSE SECTION */
   /* NEED TO MEDIA QUERY DEPENDING ON HOW MUCH CONTENT INSIDE HOUSE SECTION */
@@ -1935,15 +1896,14 @@ p{
   /* NEED TO MEDIA QUERY DEPENDING ON HOW MUCH CONTENT INSIDE HOUSE SECTION */
   /* NEED TO MEDIA QUERY DEPENDING ON HOW MUCH CONTENT INSIDE HOUSE SECTION */
   /* NEED TO MEDIA QUERY DEPENDING ON HOW MUCH CONTENT INSIDE HOUSE SECTION */
-
   height: 1150px;
   /* height: 400vh; */
-
   background: url(../img/house2.jpg) top center;
   background-size: cover;
   overflow: hidden;
   position: relative;
 }
+
 #house:before {
   content: "";
   background: rgba(6, 12, 34, 0.8);
@@ -1953,6 +1913,7 @@ p{
   left: 0;
   right: 0;
 }
+
 #house .savedHouse-container {
   color: white;
   position: absolute;
@@ -1966,15 +1927,12 @@ p{
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center; */
-
   /* ------changed layout - map on left -------*/
   /* ------changed layout - map on left -------*/
   /* ------changed layout - map on left -------*/
   /* -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center; */
-
-
   /* -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
@@ -1982,93 +1940,100 @@ p{
   text-align: center;
   padding: 0 15px; */
 }
-.responsive-switch{
+
+.responsive-switch {
   text-align: center;
   display: block;
 }
-.savedHouse-container h2{
+
+.savedHouse-container h2 {
   color: white;
 }
-.streetViewANDInfoSecs{
+
+.streetViewANDInfoSecs {
   /* border: 1px solid white; */
   width: 100%;
 }
+
 /* Clear fix hack */
 .clearfix:after {
-     content: ".";
-     display: block;
-     clear: both;
-     visibility: hidden;
-     line-height: 0;
-     height: 0;
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
 }
-.houseStreetViewSec{
+
+.houseStreetViewSec {
   /* border: 1px solid white; */
   width: 40%;
   margin-left: 7%;
   float: left;
 }
-#cards{
+
+#cards {
   width: 100%;
 }
+
 /* .embedly-card iframe{
   width: 100%;
   float: left;
 } */
-.embedly-card{
+.embedly-card {
   width: 100%;
 }
-.art-bd-img{
+
+.art-bd-img {
   width: 100%;
   float: left;
 }
-.houseInfoSec{
+
+.houseInfoSec {
   /* border: 1px solid white; */
   width: 40%;
   margin-left: 7%;
   margin-right: 6%;
   float: left;
 }
-.houseRtSec ul{
 
-}
-.houseLinkSec{
+.houseRtSec ul {}
+
+.houseLinkSec {
   /* border: 1px solid white; */
   width: 40%;
   margin-left: 7%;
   float: left;
 }
-.houseAARPImgSec{
+
+.houseAARPImgSec {
   /* border: 1px solid white; */
   width: 40%;
   margin-left: 7%;
   float: left;
 }
-.houseAARPImgSec img{
+
+.houseAARPImgSec img {
   width: 57%;
 }
-.houseAARPImgSec h4{
+
+.houseAARPImgSec h4 {
   color: white;
 }
-.houseAARPImgSec a{
+
+.houseAARPImgSec a {
   display: block;
   text-align: center;
   /* padding-left: 20%; */
   /* text-align: center; */
 }
+
 /* .houseAARPImgSec p{
   text-align: center;
 } */
-
-
-
-
-
-
 /*--------------------------------------------------------------
 # Responsive Media Queries
 --------------------------------------------------------------*/
-
 @media (min-width: 767px) {
   #subscribe input {
     min-width: 400px;
@@ -2076,16 +2041,19 @@ p{
 }
 
 @media (min-width: 768px) {
+
   #contact .contact-address,
   #contact .contact-phone,
   #contact .contact-email {
     padding: 20px 0;
   }
+
   #contact .contact-phone {
     border-left: 1px solid #ddd;
     border-right: 1px solid #ddd;
   }
-  #about h3{
+
+  #about h3 {
     margin: 0;
   }
 }
@@ -2189,12 +2157,14 @@ p{
   #subscribe button {
     margin-top: 10px;
   }
+
   /* .col-lg-3{
     margin-top: 30px;
   } */
-  #about h3{
+  #about h3 {
     margin: 0;
   }
+
   /* #gallery .h2Gallery{
     font-size: 19px;
   } */
@@ -2211,7 +2181,20 @@ p{
     border-bottom: 3px solid #ed593b;
     border-bottom-right-radius: 30px;
   } */
-  .demoLabel{
+  .searchStatusMap {
+    height: 21px;
+    width: 91%;
+    position: absolute;
+    /* left: 100%; */
+    margin-left: 3px;
+    /* top: 9%; */
+    top: 54px;
+    margin-top: -50px;
+    background-color: gray;
+    opacity: 0;
+  }
+
+  .demoLabel {
     background-color: lightgray;
     opacity: 0.7;
     color: black !important;
@@ -2219,7 +2202,8 @@ p{
     border-top-left-radius: 30px;
     right: 19px;
   }
-  .demoMatt, .demoWRox, .demoRos, .demoMel, .demoNew{
+
+  .demoMatt, .demoWRox, .demoRos, .demoMel, .demoNew {
     background-color: lightgray;
     opacity: 0.7;
     color: black;
@@ -2227,66 +2211,81 @@ p{
     border-bottom-right-radius: 0px;
     right: 19px;
     border-right: none;
+  }
 }
-}
+
 /* Mobile */
-@media only screen and (max-width: 417px){
-  #loginSignup input{
+@media only screen and (max-width: 417px) {
+  #loginSignup input {
     width: 94%;
   }
+
   /* .div-loginSignup {
     width: 75%;
   } */
   #mapContainer {
-      width: 100%;
+    width: 100%;
   }
+
   #intro .about-btn, #loginSignup button {
     width: 94%;
   }
+
   #intro .about-btn-left {
     width: 94%;
   }
+
   #intro .about-btn-right {
     width: 94%;
   }
+
   /* footer's more links */
-  .more-links{
+  .more-links {
     display: none;
   }
-  #house{
+
+  #house {
     height: 2004px;
   }
-  .savedHouse-container h2{
+
+  .savedHouse-container h2 {
     text-align: center;
-        margin-top: 51px;
+    margin-top: 51px;
   }
-  .houseAARPImgSec h2{
+
+  .houseAARPImgSec h2 {
     margin-bottom: -18px;
-}
-  .houseStreetViewSec {
-      width: 96%;
-display: block;
-margin: 0 auto;
-float: none;
   }
+
+  .houseStreetViewSec {
+    width: 96%;
+    display: block;
+    margin: 0 auto;
+    float: none;
+  }
+
   .houseInfoSec {
     width: 96%;
     margin: 0 auto;
     float: none;
-}
-.houseInfoSec ul{
-  letter-spacing: 1px;
-}
-.houseLinkSec {
+  }
+
+  .houseInfoSec ul {
+    letter-spacing: 1px;
+  }
+
+  .houseLinkSec {
     width: 96%;
     margin: 0 auto;
     float: none;
-}
-.houseLinkSec ul{
-  letter-spacing: 1px;
-  line-height: 1.4;
-}
-.houseAARPImgSec {
+  }
+
+  .houseLinkSec ul {
+    letter-spacing: 1px;
+    line-height: 1.4;
+  }
+
+  .houseAARPImgSec {
     width: 96%;
     margin: 0 auto;
     float: none;
