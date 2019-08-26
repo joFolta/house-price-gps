@@ -45,7 +45,18 @@
 - I'd like to hire you.
   - Woaah! I appreciate that. Speak with me in person, text me at 781.627.5157, or message me on LinkedIn. Let's talk :) ￼
 
-## Used Features
+## Technologies Used
+
+- MAPBOX
+- MongoDB
+- JSON
+- NodeJS
+- ExpressJS
+- Zillow
+- XML
+- Passport
+
+## Other Features
 - Embed Code Generator | Embedly https://embed.ly/code
 - Instant Street View https://www.instantstreetview.com/
 - AARP Livability Index https://livabilityindex.aarp.org/
@@ -53,13 +64,6 @@
 - Live Zoom https://docs.mapbox.com/mapbox-gl-js/example/change-building-color-based-on-zoom-level/
 - Set pitch and bearing https://docs.mapbox.com/mapbox-gl-js/example/set-perspective/
 - Fly to a location https://docs.mapbox.com/mapbox-gl-js/example/flyto/
-
-## cool extras:
-https://docs.mapbox.com/mapbox-gl-js/example/animate-point-along-route/
-https://docs.mapbox.com/mapbox-gl-js/example/animate-camera-around-point/
-https://docs.mapbox.com/mapbox-gl-js/example/game-controls/
-https://docs.mapbox.com/mapbox.js/example/v1.0.0/custom-legend/
-https://docs.mapbox.com/mapbox.js/example/v1.0.0/marker-popup-onload/
 
 ## Ideas for Future Versions:
 - look at REAL ESTATE Sites for CSS ideas/inspiration
@@ -79,6 +83,13 @@ https://docs.mapbox.com/mapbox.js/example/v1.0.0/marker-popup-onload/
   https://docs.mapbox.com/mapbox-gl-js/example/scroll-fly-to/
 - add Navigation functionality (possible?)
 - for Demo Day: add "Live Preview Trip"/"Simulation Trip"
+
+## cool extras:
+- https://docs.mapbox.com/mapbox-gl-js/example/animate-point-along-route/
+- https://docs.mapbox.com/mapbox-gl-js/example/animate-camera-around-point/
+- https://docs.mapbox.com/mapbox-gl-js/example/game-controls/
+- https://docs.mapbox.com/mapbox.js/example/v1.0.0/custom-legend/
+- https://docs.mapbox.com/mapbox.js/example/v1.0.0/marker-popup-onload/
 
 ### References:
 - Fetching and Reading XML Data (6:23) https://www.youtube.com/watch?v=MDAWie2Sicc
