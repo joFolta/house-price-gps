@@ -15,8 +15,6 @@
   </tr>
  </table>
 
-[Desktop Preview](public/img/gifs/desktopPreview.gif)
-
 ### Purpose:
 
 - Full-stack app that allows users to find their location and find the price of the nearest house.
