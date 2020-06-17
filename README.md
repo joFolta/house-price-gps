@@ -4,8 +4,8 @@
   <tr>
     <td>Find nearest house</td>
     <td>Get house price</td>
-    <td>Research details from favorited house</td>
-    <td>Desktop mode</td>
+    <td>Research favorited house</td>
+    <td>Toggle desktop mode</td>
   </tr>
   <tr>
     <td><img src="public/img/gifs/mobile-housepriceGPS-2.gif" alt="Find nearest house" width=230 height=440></td>
@@ -83,8 +83,6 @@
 - Set pitch and bearing https://docs.mapbox.com/mapbox-gl-js/example/set-perspective/
 - Fly to a location https://docs.mapbox.com/mapbox-gl-js/example/flyto/
 
-![Preview](public/img/gifs/mobile-housepriceGPS-1.gif)
-
 ## Ideas for Future Versions:
 - Look at REAL ESTATE Sites for CSS ideas/inspiration
 - Add Directions from INPUT, output Est Commute/Driving Time (ex. to work)/draw route
@@ -121,3 +119,5 @@
 - Prevent CORS error https://github.com/Rob--W/cors-anywhere/#client
   Add https://cors-anywhere.herokuapp.com/ before fetched URL
 - HTML5 Geolocation https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API
+
+![Preview](public/img/gifs/desktopPreview.gif)
