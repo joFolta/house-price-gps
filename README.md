@@ -1,6 +1,19 @@
-![Preview](public/img/preview1.png)
-
 # 🏠 House-Pricing-GPS-App
+
+<table>
+  <tr>
+    <td>Find nearest house</td>
+    <td>Get house price</td>
+    <td>Research details from favorited house</td>
+    <td>Desktop mode</td>
+  </tr>
+  <tr>
+    <td><img src="public/img/gifs/mobile-housepriceGPS-2.gif" alt="Find nearest house" width=230 height=440></td>
+    <td><img src="public/img/gifs/mobile-housepriceGPS-3.gif" alt="Get house price" width=230 height=440></td>
+    <td><img src="public/img/gifs/mobile-housepriceGPS-4.gif" alt="Research details from favorited house" width=230 height=440></td>
+    <td><img src="public/img/gifs/mobile-housepriceGPS-5.gif" alt="Desktop mode" width=230 height=440></td>
+  </tr>
+ </table>
 
 ### Purpose:
 
@@ -16,7 +29,12 @@
 
 ## Key Features
 
-- GPS Positioning, House/Neighborhood Data, Livability Score, StreetView, User-Authentication, and Database for User's Favorite Houses.
+1. GPS Positioning
+2. House/Neighborhood Data
+3. Livability Score
+4. StreetView
+5. User-Authentication
+6. Database for User's Favorite Houses
 
 ## FAQs
 
@@ -43,18 +61,18 @@
   - I appreciate any feedback to learn and grow as a software engineer. Send me a text at 781.627.5157 and we can connect.
 
 - I'd like to hire you.
-  - Woaah! I appreciate that. Speak with me in person, text me at 781.627.5157, or message me on LinkedIn. Let's talk :) ￼
+  - Woaah! I appreciate that. Speak with me in person, text me at 781.627.5157, or message me on LinkedIn. Let's talk :)
 
 ## Technologies Used
 
-- MAPBOX
-- MongoDB
-- JSON
-- NodeJS
-- ExpressJS
-- Zillow
-- XML
-- Passport
+1. Mapbox
+2. MongoDB
+3. JSON
+4. NodeJS
+5. ExpressJS
+6. Zillow
+7. XML
+8. Passport
 
 ## Other Features
 - Embed Code Generator | Embedly https://embed.ly/code
@@ -65,26 +83,28 @@
 - Set pitch and bearing https://docs.mapbox.com/mapbox-gl-js/example/set-perspective/
 - Fly to a location https://docs.mapbox.com/mapbox-gl-js/example/flyto/
 
+![Preview](public/img/gifs/mobile-housepriceGPS-1.gif)
+
 ## Ideas for Future Versions:
-- look at REAL ESTATE Sites for CSS ideas/inspiration
-- add Directions from INPUT, output Est Commute/Driving Time (ex. to work)/draw route
+- Look at REAL ESTATE Sites for CSS ideas/inspiration
+- Add Directions from INPUT, output Est Commute/Driving Time (ex. to work)/draw route
   https://docs.mapbox.com/mapbox-gl-js/example/mapbox-gl-directions/
   https://docs.mapbox.com/help/how-mapbox-works/directions/
-- live route https://docs.mapbox.com/mapbox-gl-js/example/live-update-feature/
-- add a marker/point https://docs.mapbox.com/mapbox-gl-js/example/drag-a-marker/
-- add INPUT where you can input address to check price ZestimateAmt
+- Live route https://docs.mapbox.com/mapbox-gl-js/example/live-update-feature/
+- Add a marker/point https://docs.mapbox.com/mapbox-gl-js/example/drag-a-marker/
+- Add INPUT where you can input address to check price ZestimateAmt
 - Restyle the Mapbox Logo Bar.
   Change the default position for attribution
   https://docs.mapbox.com/mapbox-gl-js/example/attribution-position/
-- check price by using mouse to get latitude and longitude coordinates
+- Check price by using mouse to get latitude and longitude coordinates
   https://docs.mapbox.com/mapbox-gl-js/example/mouse-position/
 - SCROLL THOUGH FAVORITES and FLY w/ MAP
   Fly to a location based on scroll position
   https://docs.mapbox.com/mapbox-gl-js/example/scroll-fly-to/
-- add Navigation functionality (possible?)
-- for Demo Day: add "Live Preview Trip"/"Simulation Trip"
+- Add Navigation functionality (possible?)
+- For Demo Day: add "Live Preview Trip"/"Simulation Trip"
 
-## cool extras:
+## Cool Extras:
 - https://docs.mapbox.com/mapbox-gl-js/example/animate-point-along-route/
 - https://docs.mapbox.com/mapbox-gl-js/example/animate-camera-around-point/
 - https://docs.mapbox.com/mapbox-gl-js/example/game-controls/
