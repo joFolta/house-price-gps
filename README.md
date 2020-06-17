@@ -15,6 +15,8 @@
   </tr>
  </table>
 
+[Desktop Preview](public/img/gifs/desktopPreview.gif)
+
 ### Purpose:
 
 - Full-stack app that allows users to find their location and find the price of the nearest house.
@@ -119,5 +121,3 @@
 - Prevent CORS error https://github.com/Rob--W/cors-anywhere/#client
   Add https://cors-anywhere.herokuapp.com/ before fetched URL
 - HTML5 Geolocation https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API
-
-![Preview](public/img/gifs/desktopPreview.gif)
